@@ -15,8 +15,13 @@
 
 ## 2.2 Modelo lógico/relacional
 
+&nbsp; &nbsp; &nbsp; &nbsp;O modelo lógico consiste na conversão do modelo conceitual em um processo mais próximo do que é, de fato, a implementação de um SGBD (Sistema de Gerenciamento de Banco de Dados). Ademais, seu foco está na definição de tabelas, atributos, tipos de dados, relações, chaves primárias e chaves estrangeiras, aprofundando o que foi feito no conceitual (França, 2023). Dessa forma, foi feito (no software brModelo) o diagrama do modelo lógico no que tange ao vigente projeto, como a figura 2 demonstra.
+
+<p align = "center"> Figura 2 - Diagrama do modelo lógico</p>
+
 ![image](https://github.com/user-attachments/assets/464e0b12-f738-4073-b109-c9ae7fae8dd9)
 
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
 
 ## 2.3 Modelo físico
 ```
