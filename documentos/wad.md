@@ -33,9 +33,11 @@
 - título: título ou nome da tarefa;
 - descricao: descrição detalhada da tarefa;
 - deadline: prazo de conclusão da tarefa;
-- progresso: status de progresso da tarefa;
-- classificacao: rótulo da tarefa;
-- prioridade: nível de prioridade da tarefa. 
+- progresso: status de progresso da tarefa (ex.: 50%, concluído);
+- classificacao: rótulo da tarefa (ex.: UX);
+- prioridade: nível de prioridade da tarefa (ex.: alta, média e baixa). 
+
+
 
 <br>
 
@@ -49,7 +51,7 @@
 <h4> TAREFA-USUARIO </h4>
 
 - Cardinalidade: (1,1), que é um-para-um;
-- Descrição do relacionamento: um usuário pode ter uma ou muitas tarefas.
+- Descrição do relacionamento: uma tarefa se refere a um único usuário.
 
 
 ## 2.2 Modelo lógico/relacional
@@ -62,6 +64,40 @@
 
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 
+<h3>TABELA: USUARIO</h3>
+<h4>Atributos:</h4>
+
+- id_usuario (PK) - chave primária (SERIAL): identificador único e autoincrementável do usuário;
+- nome_usuario (TEXT): nome do usuário;
+- email (TEXT): email do usuário;
+- senha (TEXT): senha de acesso (deve ser armazenada criptografada).
+
+<h3>TABELA: TAREFA</h3>
+<h4>Atributos (um pouco mais detalhados que no modelo conceitual):</h4>
+
+- id_tarefa (PK) - chave primária (SERIAL): identificador único e autoincrementável da tarefa;
+- titulo (TEXT): título ou nome da tarefa;
+- descricao (TEXT): descrição detalhada da tarefa;
+- deadline (DATE): prazo de conclusão da tarefa;
+- progresso (TEXT):  status de progresso da tarefa (ex.: 50%, concluído);
+- classificacao (TEXT): rótulo da tarefa (ex.: UX);
+- prioridade (TEXT): nível de prioridade da tarefa (ex.: alta, média e baixa);
+- usuario_id (FK) (SERIAL): chave estrangeira que referencia USUARIO(id_usuario).
+
+
+<h3>RELACIONAMENTOS</h3>
+&nbsp; &nbsp; &nbsp; &nbsp;Os relacionamentos já foram descritos na seção 2.1. No entanto, achou-se melhro colocá-los aqui novamente para uma melhor leitura.
+
+<h4> USUARIO-TAREFA </h4>
+
+- Cardinalidade: (1,n), que é um-para-muitos;
+- Descrição do relacionamento: um usuário pode ter uma ou muitas tarefas.
+
+
+<h4> TAREFA-USUARIO </h4>
+
+- Cardinalidade: (1,1), que é um-para-um;
+- Descrição do relacionamento: uma tarefa se refere a um único usuário.
 ## 2.3 Modelo físico
 
 &nbsp; &nbsp; &nbsp; &nbsp;Por fim, o modelo físico diz respeito à implementação concreta do banco de dados, com comandos SQL em um SGBD determinado (França, 2023). Desse modo, efetuou-se (usando o Visual Studio Code) o modelo físico referente ao vigente projeto, como é possível ver logo abaixo. Ele será implementado efetivamente nas próximas etapas do projeto individual com o uso do Supabase, plataforma de backend como serviço (BaaS - Backend as a Service) de código aberto baseada em tecnologias PostgreSQL (Oliveira, 2024).	
