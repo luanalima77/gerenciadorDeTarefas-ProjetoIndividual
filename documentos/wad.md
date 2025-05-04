@@ -1,4 +1,5 @@
 # 1. INTRODUÇÃO
+&nbsp; &nbsp; &nbsp; &nbsp;A gestão de tarefas é um processo fundamental para uma maior produtividade, seja em uma empresa ou até mesmo para atividades individuais e do dia a dia (PONTOTEL, 2024). Desse modo, foi criado o vigente projeto de gerenciamento de tarefas, que tem como premissa ser simples e objetivo. Em linhas gerais, ele tem como foco permitir que usuários cadastrados criem, visualizem, editem e excluam tarefas pessoais, organizando-as por prioridade, progresso e prazo (deadline). Em se tratando de aspectos mais técnicos, tal sistema tem sido desenvolvido seguindo o padrão MVC (Model-View-Controller), que facilita a distribuição de funções do software supracitado.
 
 # 2. DIAGRAMA DO BANCO DE DADOS
 
@@ -29,3 +30,6 @@ CREATE TABLE TAREFA (
   usuario_id INT REFERENCES usuario(id_usuario) ON DELETE CASCADE,
 );
 ```
+
+# REFERÊNCIAS BIBLIOGRÁFICAS
+PONTOTEL. Gestão de tarefas: entenda como esse processo pode ser vantajoso para sua empresa e colaboradores!. [S. l.], 22 nov. 2024. Disponível em: https://www.pontotel.com.br/gestao-de-tarefas/. Acesso em: 4 maio 2025.
