@@ -11,7 +11,46 @@
 
 ![image](https://github.com/user-attachments/assets/05eb50db-59e4-4a72-833a-85e951338c4c)
 
-<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p> 
+<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;A partir da figura 1, é possível extrair os seguintes dados, que serão cruciais também para a realização do modelo lógico e do modelo físico:
+
+<h3>ENTIDADE: USUARIO</h3>
+<h4>Atributos:</h4>
+
+- id_usuario: identificador do usuário;
+- nome_usuario: nome do usuário;
+- email: email do usuário;
+- senha: senha de acesso do usuário. 
+
+<br>
+
+<h3>ENTIDADE: TAREFA</h3>
+<h4>Atributos:</h4>
+
+- id_tarefa: identificador da tarefa;
+- título: título ou nome da tarefa;
+- descricao: descrição detalhada da tarefa;
+- deadline: prazo de conclusão da tarefa;
+- progresso: status de progresso da tarefa;
+- classificacao: rótulo da tarefa;
+- prioridade: nível de prioridade da tarefa. 
+
+<br>
+
+<h3>RELACIONAMENTOS</h3>
+<h4> USUARIO-TAREFA </h4>
+
+- Cardinalidade: (1,n), que é um-para-muitos;
+- Descrição do relacionamento: um usuário pode ter uma ou muitas tarefas.
+
+
+<h4> TAREFA-USUARIO </h4>
+
+- Cardinalidade: (1,1), que é um-para-um;
+- Descrição do relacionamento: um usuário pode ter uma ou muitas tarefas.
+
 
 ## 2.2 Modelo lógico/relacional
 
@@ -42,7 +81,7 @@ CREATE TABLE TAREFA (
   deadline DATE,
   progresso TEXT NOT NULL,
   prioridade TEXT NOT NULL,
-  usuario_id INT REFERENCES usuario(id_usuario) ON DELETE CASCADE,
+  usuario_id INT REFERENCES usuario(id_usuario) ON DELETE CASCADE
 );
 ```
 
