@@ -6,7 +6,9 @@
 ![image](https://github.com/user-attachments/assets/05eb50db-59e4-4a72-833a-85e951338c4c)
 
 ## 2.2 Modelo lógico/relacional
-![image](https://github.com/user-attachments/assets/19245b98-5762-4845-8928-d1e52c88fdeb)
+
+![image](https://github.com/user-attachments/assets/464e0b12-f738-4073-b109-c9ae7fae8dd9)
+
 
 ## 2.3 Modelo físico
 ```
