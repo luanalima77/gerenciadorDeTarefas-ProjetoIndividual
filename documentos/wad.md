@@ -65,7 +65,7 @@
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 
 <h3>TABELA: USUARIO</h3>
-<h4>Atributos:</h4>
+<h4>Atributos (um pouco mais detalhados que no modelo conceitual):</h4>
 
 - id_usuario (PK) - chave primária (SERIAL): identificador único e autoincrementável do usuário;
 - nome_usuario (TEXT): nome do usuário;
@@ -86,7 +86,7 @@
 
 
 <h3>RELACIONAMENTOS</h3>
-&nbsp; &nbsp; &nbsp; &nbsp;Os relacionamentos já foram descritos na seção 2.1. No entanto, achou-se melhro colocá-los aqui novamente para uma melhor leitura.
+&nbsp; &nbsp; &nbsp; &nbsp;Os relacionamentos já foram descritos na seção 2.1. No entanto, achou-se melhor colocá-los aqui novamente para uma melhor leitura.
 
 <h4> USUARIO-TAREFA </h4>
 
@@ -102,7 +102,7 @@
 
 &nbsp; &nbsp; &nbsp; &nbsp;Por fim, o modelo físico diz respeito à implementação concreta do banco de dados, com comandos SQL em um SGBD determinado (França, 2023). Desse modo, efetuou-se (usando o Visual Studio Code) o modelo físico referente ao vigente projeto, como é possível ver logo abaixo. Ele será implementado efetivamente nas próximas etapas do projeto individual com o uso do Supabase, plataforma de backend como serviço (BaaS - Backend as a Service) de código aberto baseada em tecnologias PostgreSQL (Oliveira, 2024).	
 
-```
+```sql
 CREATE TABLE USUARIO(
   id_usuario SERIAL PRIMARY KEY,
   nome_usuario TEXT NOT NULL,
@@ -114,12 +114,22 @@ CREATE TABLE TAREFA (
   id_tarefa SERIAL PRIMARY KEY,
   titulo TEXT NOT NULL,
   descricao TEXT NOT NULL,
-  deadline DATE,
+  deadline DATE NOT NULL,
   progresso TEXT NOT NULL,
   prioridade TEXT NOT NULL,
   usuario_id INT REFERENCES usuario(id_usuario) ON DELETE CASCADE
 );
 ```
+
+<h3>Descrição um pouco mais aprofundada do modelo físico</h3>
+
+&nbsp; &nbsp; &nbsp; &nbsp;A fim de gerar mais completude ao entendimento do modelo físico, é significativo ressaltar os seguintes aspectos:
+- PRIMARY KEY: indica a criação de uma chave primária (identificador);
+- NOT NULL: tal especificação impede que um campo seja nulo;
+- SERIAL (usado para criação de campos com incremento automático), TEXT (texto), INT (números inteiros) e DATE (data) são os tipos de dados usados nos campos;
+- usuario_id INT REFERENCES usuario(id_usuario) ON DELETE CASCADE: tal código define uma chave estrangeira usuario_id, a qual referencia id_usuario (chave primária da tabela USUARIO) e exclui automaticamente os registros relacionados quando o usuário é deletado.
+
+<br>
 
 # REFERÊNCIAS BIBLIOGRÁFICAS
 
