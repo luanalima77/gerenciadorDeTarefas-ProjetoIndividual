@@ -64,7 +64,7 @@ npm install
 node server.js
 ```
 
-A partir daqui, é necessário ter o banco de dados criado. Como ele **ainda** não foi conectado, siga, apenas por enquanto, os passos 1, 2 e 3.
+&nbsp; &nbsp; &nbsp; &nbsp;A partir daqui, é necessário ter o banco de dados criado. Como ele **ainda** não foi conectado, siga, apenas por enquanto, os passos 1, 2 e 3.
 
 4) Renomeie o arquivo .env.example para .env e e faça a configuração das variáveis de ambiente necessárias, a exemplo das configurações do banco de dados PostgreSQL
 
@@ -76,6 +76,7 @@ npm start
 
 ## Configuração do banco de dados
 
+&nbsp; &nbsp; &nbsp; &nbsp;Reiterando, esta parte **ainda** não precisa ser realizada, uma vez que o banco de dados **ainda** não está conectado. Estas instruções estão aqui apenas para as próximas etapas da atividade.
 1) Crie seu banco de dados PostgreSQL com o nome determinado no seu .env
 2) Execute o script SQL de inicialização
 ```
