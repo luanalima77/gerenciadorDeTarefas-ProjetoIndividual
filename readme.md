@@ -59,15 +59,23 @@ git clone https://github.com/luanalima77/gerenciadorDeTarefas-ProjetoIndividual.
 npm install
 ```
 
-3) Renomeie o arquivo .env.example para .env e e faça a configuração das variáveis de ambiente necessárias, a exemplo das configurações do banco de dados PostgreSQL
+3) Rode o seguinte código para iniciar o servidor
+```
+node server.js
+```
 
-4) Execute o seguinte código para iniciar:
+A partir daqui, é necessário ter o banco de dados criado. Como ele **ainda** não foi conectado, siga, apenas por enquanto, os passos 1, 2 e 3.
+
+4) Renomeie o arquivo .env.example para .env e e faça a configuração das variáveis de ambiente necessárias, a exemplo das configurações do banco de dados PostgreSQL
+
+5) Execute o seguinte código para iniciar:
 ```
 npm start
 ```
 
 
 ## Configuração do banco de dados
+
 1) Crie seu banco de dados PostgreSQL com o nome determinado no seu .env
 2) Execute o script SQL de inicialização
 ```
