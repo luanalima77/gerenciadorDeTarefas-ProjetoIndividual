@@ -56,33 +56,33 @@
 
 ## 2.2 Modelo lógico/relacional
 
-&nbsp; &nbsp; &nbsp; &nbsp;O modelo lógico consiste na conversão do modelo conceitual em um processo mais próximo do que é, de fato, a implementação de um SGBD (Sistema de Gerenciamento de Banco de Dados). Ademais, seu foco está na definição de tabelas, atributos, tipos de dados, relações, chaves primárias e chaves estrangeiras, aprofundando o que foi feito no conceitual (França, 2023). Dessa forma, foi feito (no software brModelo) o diagrama do modelo lógico no que tange ao vigente projeto, como a figura 2 demonstra.
+&nbsp; &nbsp; &nbsp; &nbsp;O modelo lógico consiste na conversão do modelo conceitual em um processo mais próximo do que é, de fato, a implementação de um SGBD (Sistema de Gerenciamento de Banco de Dados). Ademais, seu foco está na definição de tabelas, atributos, tipos de dados, relações, chaves primárias e chaves estrangeiras, aprofundando o que foi feito no conceitual (França, 2023). Dessa forma, foi feito (no software brModelo) o diagrama do modelo lógico no que tange ao vigente projeto, como a figura 2 demonstra. PK indica que um atributo é chave primária e FK indica que um atributo é chave estrangeira. Essa notação foi colocada apenas para facilitar a visualização e no modelo físico elas foram retiradas (ex.: id_usuario (PK) ficou como id_usuario no modelo físico).
 
 <p align = "center"> Figura 2 - Diagrama do modelo lógico</p>
 
-![image](https://github.com/user-attachments/assets/464e0b12-f738-4073-b109-c9ae7fae8dd9)
+<img src = "../assets/modeloLógicoProjetoIndividual.png" align = "center">
 
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 
 <h3>TABELA: USUARIO</h3>
 <h4>Atributos (um pouco mais detalhados que no modelo conceitual):</h4>
 
-- id_usuario (PK) - chave primária (SERIAL): identificador único e autoincrementável do usuário;
-- nome_usuario (TEXT): nome do usuário;
-- email (TEXT): email do usuário;
-- senha (TEXT): senha de acesso (deve ser armazenada criptografada).
+- id_usuario (PK) - chave primária: identificador único e autoincrementável do usuário;
+- nome_usuario: nome do usuário;
+- email: email do usuário;
+- senha: senha de acesso.
 
 <h3>TABELA: TAREFA</h3>
 <h4>Atributos (um pouco mais detalhados que no modelo conceitual):</h4>
 
-- id_tarefa (PK) - chave primária (SERIAL): identificador único e autoincrementável da tarefa;
-- titulo (TEXT): título ou nome da tarefa;
-- descricao (TEXT): descrição detalhada da tarefa;
-- deadline (DATE): prazo de conclusão da tarefa;
-- progresso (TEXT):  status de progresso da tarefa (ex.: 50%, concluído);
-- classificacao (TEXT): rótulo da tarefa (ex.: UX);
-- prioridade (TEXT): nível de prioridade da tarefa (ex.: alta, média e baixa);
-- usuario_id (FK) (SERIAL): chave estrangeira que referencia USUARIO(id_usuario).
+- id_tarefa (PK) - chave primária: identificador único e autoincrementável da tarefa;
+- titulo: título ou nome da tarefa;
+- descricao: descrição detalhada da tarefa;
+- deadline: prazo de conclusão da tarefa;
+- progresso: status de progresso da tarefa (ex.: 50%, concluído);
+- classificacao: rótulo da tarefa (ex.: UX);
+- prioridade: nível de prioridade da tarefa (ex.: alta, média e baixa);
+- usuario_id (FK): chave estrangeira que referencia USUARIO(id_usuario).
 
 
 <h3>RELACIONAMENTOS</h3>
