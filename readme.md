@@ -2,7 +2,7 @@
 &nbsp; &nbsp; &nbsp; &nbsp;Em linhas gerais, este sistema consiste em um gerenciador de tarefas, no qual os usuários terão opções de cadastro e login, ou seja, poderão criar contas próprias, a fim de registrar suas atividades. Estas poderão ser editadas, alteradas, adicionadas e excluídas, tendo informações de id, título, descrição, deadline, progresso, classificação (rótulo da tarefa) e prioridade. A partir de tais aspectos, objetiva-se que os utilizadores do sistema possam deter um maior controle sobre suas tasks e, consequentemente, um melhor planejamento.
 
 # Estrutura de pastas
-&nbsp; &nbsp; &nbsp; &nbsp;Logo abaixo está descrita a estrutura de pastas do projeto. No presente momento, algumas pastas ainda não estão aparecendo no repositório porque **ainda** não há arquivos nelas, uma vez que serão complementadas nas próximas semanas.
+&nbsp; &nbsp; &nbsp; &nbsp;Logo abaixo está descrita a estrutura de pastas do projeto.
 ```
 gerenciadorDeTarefas-ProjetoIndividual/
 │
@@ -64,7 +64,7 @@ npm install
 node server.js
 ```
 
-&nbsp; &nbsp; &nbsp; &nbsp;A partir daqui, é necessário ter o banco de dados criado. Como ele **ainda** não foi conectado, siga, apenas por enquanto, os passos 1, 2 e 3.
+&nbsp; &nbsp; &nbsp; &nbsp;A partir daqui, é necessário ter o banco de dados criado. Como ele **ainda** não foi conectado, **siga, apenas por enquanto, os passos 1, 2 e 3**.
 
 4) Renomeie o arquivo .env.example para .env e e faça a configuração das variáveis de ambiente necessárias, a exemplo das configurações do banco de dados PostgreSQL
 
@@ -76,7 +76,7 @@ npm start
 
 ## Configuração do banco de dados
 
-&nbsp; &nbsp; &nbsp; &nbsp;Reiterando, esta parte **ainda** não precisa ser realizada, uma vez que o banco de dados **ainda** não está conectado. Estas instruções estão aqui apenas para as próximas etapas da atividade.
+&nbsp; &nbsp; &nbsp; &nbsp;Reiterando, esta parte **ainda** não precisa ser realizada, uma vez que o banco de dados **ainda** não está conectado. **Estas instruções estão aqui apenas para as próximas etapas da atividade**.
 1) Crie seu banco de dados PostgreSQL com o nome determinado no seu .env
 2) Execute o script SQL de inicialização
 ```
