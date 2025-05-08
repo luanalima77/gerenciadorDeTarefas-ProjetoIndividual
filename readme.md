@@ -7,8 +7,9 @@
 gerenciadorDeTarefas-ProjetoIndividual/
 │
 ├── assets/                # Arquivos públicos como imagens e fontes
-|   └── DER.png
-|   └── modeloLógicoVersãoFinalizada.png             
+|   └── modelo-conceitual-banco.png 
+|   └── modelo-logico-banco.png  
+|   └── modelo-fisico-banco.png            
 ├── config/                # Arquivos de configuração (ex: conexão com banco)
 │   └── database.js
 ├── controllers/           # Lógica de controle das requisições

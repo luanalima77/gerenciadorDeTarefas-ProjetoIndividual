@@ -9,7 +9,7 @@
 
 <p align = "center"> Figura 1 - Diagrama Entidade-Relacionamento </p>
 
-![image](https://github.com/user-attachments/assets/05eb50db-59e4-4a72-833a-85e951338c4c)
+<img src = "../assets/modelo-conceitual-banco.png" align = "center">
 
 <p align = "center"> Fonte: material produzido pela autora (2025).</p> 
 <br>
@@ -60,7 +60,7 @@
 
 <p align = "center"> Figura 2 - Diagrama do modelo lógico</p>
 
-<img src = "../assets/modeloLógicoProjetoIndividual.png" align = "center">
+<img src = "../assets/modelo-logico-banco.png" align = "center">
 
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 
