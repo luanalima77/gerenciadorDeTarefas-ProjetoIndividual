@@ -98,6 +98,7 @@
 
 - Cardinalidade: (1,1), que é um-para-um;
 - Descrição do relacionamento: uma tarefa se refere a um único usuário.
+
 ## 2.3 Modelo físico
 
 &nbsp; &nbsp; &nbsp; &nbsp;Por fim, o modelo físico diz respeito à implementação concreta do banco de dados, com comandos SQL em um SGBD determinado (França, 2023). Desse modo, efetuou-se (usando o Visual Studio Code) o modelo físico referente ao vigente projeto, como é possível ver logo abaixo. Ele será implementado efetivamente nas próximas etapas do projeto individual com o uso do Supabase, plataforma de backend como serviço (BaaS - Backend as a Service) de código aberto baseada em tecnologias PostgreSQL (Oliveira, 2024).	
@@ -130,6 +131,141 @@ CREATE TABLE TAREFA (
 - usuario_id INT REFERENCES usuario(id_usuario) ON DELETE CASCADE: tal código define uma chave estrangeira usuario_id, a qual referencia id_usuario (chave primária da tabela USUARIO) e exclui automaticamente os registros relacionados quando o usuário é deletado.
 
 <br>
+
+# 3 ARQUITETURA MVC DO PROJETO
+&nbsp; &nbsp; &nbsp; &nbsp; De modo geral a arquitetura MVC é um padrão de construção de software composto por três partes principais:
+- Model (Modelo): parte que interage com o banco de dados da aplicação, ou seja, é a camada de dados;
+- View (Visão): consiste na parte de apresentação visual ao usuário, ou seja, da interface; 
+- Controller (Controlador): essa parte atua como uma ponte entre Model e View, sendo responsável por receber as entradas do usuário, processá-las (geralmente com o auxílio do Model) e determinar qual resposta ou visualização (View) deve ser apresentada. Portanto, é ela que coordena o fluxo de dados.
+
+&nbsp; &nbsp; &nbsp; &nbsp;Dessa forma, criou-se a seguinte estrutura MVC para o vigente projeto (conforme a figura 3):
+
+
+# 4. COMO CONFIGURAR O BANCO DE DADOS E RODAR AS MIGRAÇÕES?
+## 4.1 O Supabase
+&nbsp; &nbsp; &nbsp; &nbsp; Para o vigente projeto de gerenciamento de tarefas, foi escolhido como banco de dados o Supabase. Ele é um banco de dados PostgreSQL de código aberto gerenciado por um servidor em nuvem (AWS). Assim, para facilitar o entendimento deste projeto, segue um passo a passo de como entrar no Supabase: <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;1) Pesquise no seu navegador por https://supabase.com/ <br>
+&nbsp; &nbsp; &nbsp; &nbsp;2) Clique em sign-in (conforme a figura 4):
+<p align = "center"> Figura 4 - Home do Supabase</p>
+
+<img src = "../assets/homeSupabase.png" align = "center">
+
+<p align = "center"> Fonte: material retirado do Supabase.</p>
+<br><br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;3) Insira seus dados para cadastro (conforme a figura 5):
+<p align = "center"> Figura 5 - Home do Supabase</p>
+
+<img src = "../assets/cadastroSupabase.png" align = "center">
+
+<p align = "center"> Fonte: material retirado do Supabase.</p>
+<br><br>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp;4) Crie uma organização no Supabase (conforme a figura 6):
+<p align = "center"> Figura 6 - Organização no Supabase</p>
+
+<img src = "../assets/organizacaoSupabase.png" align = "center">
+
+<p align = "center"> Fonte: material retirado do Supabase.</p>
+<br><br>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp;5) Crie uma organização no Supabase (conforme a figura 7):
+<p align = "center"> Figura 7 - Criando organização no Supabase</p>
+
+<img src = "../assets/organizacaoSupabase.png" align = "center">
+
+<p align = "center"> Fonte: material retirado do Supabase.</p>
+<br><br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;6) Crie um projeto no Supabase (conforme a figura 8). **OBSERVAÇÃO: a seta amarela está apontando para o campo de senha do banco de dados. Defina uma e SALVE ELA, uma vez que ela será importante para a conexão com o banco de dados posteriormente (especificamente na variável ambiente DB_PASSWORD no arquivo .env)**:
+<p align = "center"> Figura 8 - Criando projeto no Supabase </p>
+
+<img src = "../assets/criarProjetoSupabase.png" align = "center">
+
+<p align = "center"> Fonte: material retirado do Supabase.</p>
+<br><br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;7) Depois disso, a interface do Supabase será aberta (conforme a figura 9).
+
+<p align = "center"> Figura 9 - Interface do Supabase</p>
+
+<img src = "../assets/interfaceSupabase.png" align = "center">
+
+<p align = "center"> Fonte: material retirado do Supabase.</p>
+
+<br><br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; Agora, na seção 4.2, será mostrado como configurar esse banco de dados no Supabase.
+
+## 4.2 Configurando o banco de dados e as migrações
+&nbsp; &nbsp; &nbsp; &nbsp; Para configurar o banco de dados, é necessário seguir os seguintes passos:
+
+ &nbsp; &nbsp; &nbsp; &nbsp; **PASSO 1**: configure das variáveis de ambiente necessárias no arquivo .env. Dessa forma, insira isso no arquivo .env: 
+
+```
+DB_USER=
+DB_HOST=
+DB_DATABASE=
+DB_PASSWORD=
+DB_PORT=
+DB_SSL=
+PORT=
+```
+<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**Na seção PORT, a porta usada neste projeto é a 3000**. Os outros dados para colocar nas variáveis de ambiente podem ser conferidas dentro do próprio site do Supabase da seguinte forma: <br>
+&nbsp; &nbsp; &nbsp; &nbsp; **Procure pelo botão "Connect" ao entrar no Supabase (conforme a figura 10):** 
+
+<p align = "center"> Figura 10 - Botão Connect do Supabase</p>
+<img src = "../assets/connect.png" align = "center">
+<p align = "center"> Fonte: material retirado do Supabase.</p>
+<br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**PASSO 2: após ter clicado em Connect, role a seção para baixo e procure por "Session pooler" e clique em "View parameters" (conforme a figura 11). Nessa seção, estão todos os dados necessários para colocar no .env e, assim, conectar o banco de dados ao projeto:**
+
+<p align = "center"> Figura 11 - Session Pooler no Supabase</p>
+<div align = "center">
+<img src = "../assets/sessionPooler.png">
+</div>
+<p align = "center"> Fonte: material retirado do Supabase.</p>
+<br>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp;**PASSO 3: após ter clicado em View parameters (conforme a figura 12), aparecerão os seguintes dados (eu deixei os da imagem cobertos por questões de segurança):**
+<p align = "center"> Figura 12 - Dados para conexão com o banco de dados</p>
+<div align = "center">
+<img src = "../assets/dadosConexao.png">
+</div>
+<p align = "center"> Fonte: material retirado do Supabase.</p>
+<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; Faça o seguinte:
+- Insira o dado de host na variável de ambiente DB_HOST do arquivo .env;
+- Insira o dado de port na variável de ambiente DB_PORT do arquivo .env;
+- Insira o dado de database na variável de ambiente DB_DATABASE do arquivo .env;
+- Insira o dado de user na variável de ambiente DB_USER do arquivo .env;
+- Insira 3000 na variável de ambiente PORT do arquivo .env;
+- Insira true na variável de ambiente DB_SSL do arquivo .env;
+- Insira a senha definida na criação do projeto na variável de ambiente DB_PASSWORD do arquivo .env (por isso que foi sugerido salvá-la, uma vez que será utilizada aqui, vide figura 8).
+ <br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **PASSO 4 - MIGRAÇÕES**: após seguir os passos anteriores, execute o script de inicialização abaixo pelo terminal. É significativo pontuar que esse processo é responsável por preparar o banco de dados com a estrutura necessária para o funcionamento da aplicação. No que tange a isso, o arquivo init.sql (que está dentro da pasta scripts) contém os comandos SQL responsáveis por criar o banco de dados e suas tabelas iniciais. Nesse sentido, ele define a estrutura do banco — como os nomes das tabelas, colunas, tipos de dados, chaves primárias, relacionamentos, entre outros. Dessa forma, para rodar essa migração inicial e criar o banco no Supabase, utilize o seguinte comando:
+```
+npm run init-db
+```
+<br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**PASSO 5: por fim, execute o seguinte comando no terminal para rodar o servidor:**
+```
+node server.js
+```
+<br> <br>
+
+# 5. COMO TESTAR AS APIs?
+
 
 # REFERÊNCIAS BIBLIOGRÁFICAS
 
