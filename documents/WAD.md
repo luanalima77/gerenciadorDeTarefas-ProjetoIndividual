@@ -265,6 +265,190 @@ node server.js
 <br> <br>
 
 # 5. COMO TESTAR AS APIs?
+&nbsp; &nbsp; &nbsp; &nbsp;Para testar as APIs do vigente projeto, recomenda-se o uso do software Postman.
+
+## 5.1 O Postman
+&nbsp; &nbsp; &nbsp; &nbsp;De modo geral, o Postman é uma ferramenta que auxilia no teste de APIs. Para instalá-lo, faça o seguinte:<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **INSTALAR O POSTMAN: pesquise no seu navegador por https://www.postman.com/downloads/ e instale o Postman, colocando suas respectivas configurações (conforme a figura 13)**:
+
+<p align = "center"> Figura 13 - Instalando o Postman</p>
+<div align = "center">
+<img src = "../assets/downloadPostman.png">
+</div>
+<p align = "center"> Fonte: material retirado do site do Postman.</p>
+<br>
+
+## 5.2 Testando as APIs
+
+&nbsp; &nbsp; &nbsp; &nbsp; Para testar as APIs no Postman, siga os seguintes passos:
+
+&nbsp; &nbsp; &nbsp; &nbsp; **1)Abra o Postman no seu computador** <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **2)Ao abrir o Postman, clique em "New" no canto superior esquerdo (conforme a figura 14)**:
+<p align = "center"> Figura 14 - Clicando em "New" no Postman</p>
+<div align = "center">
+<img src = "../assets/newPostman.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **3)Clique em HTTP (conforme a figura 15)**:
+<p align = "center"> Figura 15 - Clicando em "HTTP" no Postman</p>
+<div align = "center">
+<img src = "../assets/httpPostman.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **4)Após isso, será aberta a interface para a realização de requisições no Postman (conforme a figura 16)**:
+<p align = "center"> Figura 16 - Interface para requisições no Postman</p>
+<div align = "center">
+<img src = "../assets/requisicoesPostman.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **5)Depois, na aba Body, selecione raw e JSON para realizar as requisições(conforme a figura 17);**:
+<p align = "center"> Figura 17 - Interface para requisições no Postman</p>
+<div align = "center">
+<img src = "../assets/bodyRaw.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+<h3> REQUISIÇÃO DE CADASTRO DE USUÁRIO</h3>
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: POST (mandar dados para o servidor); <br>
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/cadastro;
+
+<p align = "center"> Figura 18 - Exemplo de requisição de cadastro</p>
+<div align = "center">
+<img src = "../assets/requisicaoCadastro.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+<p align = "center"> Figura 19 - Exemplo de resposta de cadastro</p>
+<div align = "center">
+<img src = "../assets/respostaCadastro.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+
+<p align = "center"> Figura 20 - Usuário cadastrado no banco de dados</p>
+<div align = "center">
+<img src = "../assets/cadastroBancoDeDados.png">
+</div>
+<p align = "center"> Fonte: material retirado do site do Supabase.</p>
+<br>
+
+<h3> REQUISIÇÃO DE LOGIN DE USUÁRIO</h3>
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: POST (mandar dados para o servidor);
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/login;
+
+<p align = "center"> Figura 21 - Exemplo de requisição de login</p>
+<div align = "center">
+<img src = "../assets/requisicaoLogin.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+<p align = "center"> Figura 22 - Exemplo de resposta de login</p>
+<div align = "center">
+<img src = "../assets/respostaLogin.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+
+<h3> REQUISIÇÃO DE CRIAR TAREFAS</h3>
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: POST (mandar dados para o servidor);
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/tarefas;
+
+<p align = "center"> Figura 23 - Exemplo de requisição de criar tarefa</p>
+<div align = "center">
+<img src = "../assets/requisicaoCriarTarefa.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+<p align = "center"> Figura 24 - Exemplo de resposta de criar tarefa</p>
+<div align = "center">
+<img src = "../assets/respostaCriarTarefa.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+<p align = "center"> Figura 25 - Tarefa cadastrada no banco de dados</p>
+<div align = "center">
+<img src = "../assets/tarefaBancoDeDados.png">
+</div>
+<p align = "center"> Fonte: material retirado do site do Supabase.</p>
+<br>
+
+
+<h3> REQUISIÇÃO DE ATUALIZAR TAREFAS</h3>
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: PUT (substituir dados no servidor);
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/tarefas/1 (pode substituir esse número pelo id da tarefa);
+
+<p align = "center"> Figura 26 - Exemplo de requisição de atualizar tarefa</p>
+<div align = "center">
+<img src = "../assets/requisicaoAtualizarTarefa.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+<p align = "center"> Figura 27 - Exemplo de resposta de atualizar tarefa</p>
+<div align = "center">
+<img src = "../assets/respostaAtualizarTarefa.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+<p align = "center"> Figura 28 - Tarefa atualizada no banco de dados</p>
+<div align = "center">
+<img src = "../assets/tarefaAtualizadaBancoDeDados.png">
+</div>
+<p align = "center"> Fonte: material retirado do site do Supabase.</p>
+<br>
+
+<h3> REQUISIÇÃO DE LISTAR TAREFAS (DO USUÁRIO LOGADO)</h3>
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: GET (pegar dados do servidor);
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/tarefas;
+
+<p align = "center"> Figura 29 - Exemplo de requisição de listar tarefas</p>
+<div align = "center">
+<img src = "../assets/requisicaoListarTarefas.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+<p align = "center"> Figura 30 - Exemplo de resposta de listar tarefas</p>
+<div align = "center">
+<img src = "../assets/respostaListarTarefas.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+
+<h3> REQUISIÇÃO DE LOGOUT DE USUÁRIO</h3>
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: GET;
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/logout;
+
+<p align = "center"> Figura 31 - Exemplo de requisição de logout</p>
+<div align = "center">
+<img src = "../assets/requisicaoLogout.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
+
+<p align = "center"> Figura 32 - Exemplo de resposta de logout</p>
+<div align = "center">
+<img src = "../assets/respostaLogout.png">
+</div>
+<p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
+<br>
 
 
 # REFERÊNCIAS BIBLIOGRÁFICAS

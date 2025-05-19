@@ -7,7 +7,7 @@ const tarefaController = require('../controllers/tarefaController');
 //Rotas do usuário.
 router.post('/cadastro', usuarioController.cadastrarUsuario);
 router.post('/login', usuarioController.login);
-router.post('/logout', usuarioController.logout);
+router.get('/logout', usuarioController.logout);
 
 //Rotas da tarefa.
 router.post('/tarefas', tarefaController.salvarTarefa);
