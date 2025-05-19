@@ -83,7 +83,7 @@ git clone https://github.com/luanalima77/gerenciadorDeTarefas-ProjetoIndividual.
 
 &nbsp; &nbsp; &nbsp; &nbsp;**Instale todas as dependências, se não o projeto pode não rodar conforme o esperado.** <br>
 
-&nbsp; &nbsp; &nbsp; &nbsp;Dependências do node:
+&nbsp; &nbsp; &nbsp; &nbsp;Dependências do Node:
 
 ```
 npm install
@@ -134,7 +134,7 @@ npm install bcrypt
 ```
 <br>
 
-&nbsp; &nbsp; &nbsp; &nbsp;Dependências do (para manipulação e formatação de datas):
+&nbsp; &nbsp; &nbsp; &nbsp;Dependências do date-fns (para manipulação e formatação de datas):
 ```
 npm install date-fns
 ```
