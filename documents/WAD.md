@@ -133,7 +133,7 @@ CREATE TABLE TAREFA (
 <br>
 
 # 3 ARQUITETURA MVC DO PROJETO
-&nbsp; &nbsp; &nbsp; &nbsp; De modo geral a arquitetura MVC é um padrão de construção de software composto por três partes principais:
+&nbsp; &nbsp; &nbsp; &nbsp; De modo geral a arquitetura MVC é um padrão de construção de software composto por três partes principais (Souza, 2023):
 - Model (Modelo): parte que interage com o banco de dados da aplicação, ou seja, é a camada de dados;
 - View (Visão): consiste na parte de apresentação visual ao usuário, ou seja, da interface; 
 - Controller (Controlador): essa parte atua como uma ponte entre Model e View, sendo responsável por receber as entradas do usuário, processá-las (geralmente com o auxílio do Model) e determinar qual resposta ou visualização (View) deve ser apresentada. Portanto, é ela que coordena o fluxo de dados.
@@ -143,7 +143,7 @@ CREATE TABLE TAREFA (
 
 # 4. COMO CONFIGURAR O BANCO DE DADOS E RODAR AS MIGRAÇÕES?
 ## 4.1 O Supabase
-&nbsp; &nbsp; &nbsp; &nbsp; Para o vigente projeto de gerenciamento de tarefas, foi escolhido como banco de dados o Supabase. Ele é um banco de dados PostgreSQL de código aberto gerenciado por um servidor em nuvem (AWS). Assim, para facilitar o entendimento deste projeto, segue um passo a passo de como entrar no Supabase: <br>
+&nbsp; &nbsp; &nbsp; &nbsp; Para o vigente projeto de gerenciamento de tarefas, foi escolhido como banco de dados o Supabase. Ele é um banco de dados PostgreSQL de código aberto gerenciado por um servidor em nuvem (AWS) (Becker, 2023). Assim, para facilitar o entendimento deste projeto, segue um passo a passo de como entrar no Supabase: <br>
 
 &nbsp; &nbsp; &nbsp; &nbsp;1) Pesquise no seu navegador por https://supabase.com/ <br>
 &nbsp; &nbsp; &nbsp; &nbsp;2) Clique em sign-in (conforme a figura 4):
@@ -547,6 +547,8 @@ node server.js
 
 # REFERÊNCIAS BIBLIOGRÁFICAS
 
+BECKER, Sophie. What is Supabase?. [S. l.], 14 dez. 2023. Disponível em: https://blog.boldtech.dev/what-is-supabase-vs-firebase/#supabase-who-are-they. Acesso em: 20 maio 2025.
+
 FRANÇA, Thaís. Modelagem de banco de dados relacional: modelagem lógica. [S. l.], 23 nov. 2023. Disponível em: https://medium.com/@francethais/modelagem-de-banco-de-dados-relacional-modelagem-l%C3%B3gica-e-f%C3%ADsica-32c651f6810b. Acesso em: 4 maio 2025.
 
 NEVES, Cristiane Selem Ferreira. Banco de Dados Descomplicado: Modelagem de Dados. [S. l.], 28 ago. 2024. Disponível em: https://www.estrategiaconcursos.com.br/blog/banco-dados-descomplicado-modelagem-dados/. Acesso em: 4 maio 2025.
@@ -554,3 +556,5 @@ NEVES, Cristiane Selem Ferreira. Banco de Dados Descomplicado: Modelagem de Dado
 OLIVEIRA, Miguel. O que é Supabase? O Guia Definitivo para Esta Alternativa ao Firebase. [S. l.], 29 nov. 2024. Disponível em: https://apidog.com/pt/blog/what-is-supabase/. Acesso em: 4 maio 2025.
 
 PONTOTEL. Gestão de tarefas: entenda como esse processo pode ser vantajoso para sua empresa e colaboradores!. [S. l.], 22 nov. 2024. Disponível em: https://www.pontotel.com.br/gestao-de-tarefas/. Acesso em: 4 maio 2025.
+
+SOUZA, Ângelo. Arquitetura MVC: Entendendo o Modelo-Visão-Controlador. [S. l.], 31 out. 2023. Disponível em: https://www.dio.me/articles/arquitetura-mvc-entendendo-o-modelo-visao-controlador. Acesso em: 20 maio 2025.
