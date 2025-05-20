@@ -317,9 +317,25 @@ node server.js
 <p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
 <br>
 
+&nbsp; &nbsp; &nbsp; &nbsp;**OBS.: depois de realizar todos os passos anteriores, faça os passos seguintes:**
+
 <h3> REQUISIÇÃO DE CADASTRO DE USUÁRIO</h3>
+
 &nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: POST (mandar dados para o servidor); <br>
-&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/cadastro;
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/cadastro <br> <br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Como testar a requisição de cadastro?** <br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 1:** selecione o método POST no drop-down acima de "Params"<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 2:** insira a URL no campo em que está escrito "Enter URL or paste text" <br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 3:** insira um código como o apresentado abaixo nas linhas de comando que estão logo abaixo da seção de URL (pode substituir os valores de nome_usuario, email e senha pelos de sua preferência). A exemplificação de uma requisição de cadastro está demonstrada na figura 18:<br>
+
+```
+{
+  "nome_usuario": "insira seu nome aqui",
+  "email": "insira seu email aqui",
+  "senha": "insira sua senha aqui"
+}
+```
+<br> <br>
 
 <p align = "center"> Figura 18 - Exemplo de requisição de cadastro</p>
 <div align = "center">
@@ -327,6 +343,8 @@ node server.js
 </div>
 <p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
 <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 4:** clique no botão Send. A resposta esperada é a demonstração dos dados cadastrados (figura 19). Depois disso, os dados são armazenados no Supabase (figura 20).<br>
 
 <p align = "center"> Figura 19 - Exemplo de resposta de cadastro</p>
 <div align = "center">
@@ -344,15 +362,32 @@ node server.js
 <br>
 
 <h3> REQUISIÇÃO DE LOGIN DE USUÁRIO</h3>
-&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: POST (mandar dados para o servidor);
-&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/login;
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: POST (mandar dados para o servidor); <br>
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/login <br> <br>
 
+&nbsp; &nbsp; &nbsp; &nbsp; **Como testar a requisição de login?**<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;Após ter feito o cadastro, realize o login seguindo os passos subsequentes:<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 1:** selecione o método POST no drop-down acima de "Params"<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 2:** insira a URL no campo em que está escrito "Enter URL or paste text" <br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 3:** insira o seu usuário cadastrado (com email e senha) nas linhas de comando que estão logo abaixo da seção de URL **usando o formato apresentado abaixo** . A exemplificação de uma requisição de login está demonstrada na figura 21.<br>
+
+```
+{
+  "email": "insira seu email cadastrado aqui",
+  "senha": "insira sua senha cadastrada aqui"
+}
+```
+<br>
+<br>
 <p align = "center"> Figura 21 - Exemplo de requisição de login</p>
 <div align = "center">
 <img src = "../assets/requisicaoLogin.png">
 </div>
 <p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
 <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 4:** clique no botão Send. A resposta esperada é uma mensagem de login realizado com sucesso juntamente com o dados do usuário logado (figura 22).<br>
 
 <p align = "center"> Figura 22 - Exemplo de resposta de login</p>
 <div align = "center">
@@ -363,8 +398,27 @@ node server.js
 
 
 <h3> REQUISIÇÃO DE CRIAR TAREFAS</h3>
-&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: POST (mandar dados para o servidor);
-&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/tarefas;
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: POST (mandar dados para o servidor); <br>
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/tarefas <br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **Como testar a requisição de criar tarefas?**<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;Após ter feito o login (**SE E SOMENTE SE VOCÊ TIVER FEITO O LOGIN**), crie tarefas seguindo os passos subsequentes:<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 1:** selecione o método POST no drop-down acima de "Params"<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 2:** insira a URL no campo em que está escrito "Enter URL or paste text" <br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 3:** insira os dados das tarefas nas linhas de comando que estão logo abaixo da seção de URL **usando o formato apresentado abaixo** . A exemplificação de uma requisição de criação de tarefas está demonstrada na figura 23.<br>
+
+```
+{
+  "titulo": "Coloque o título da sua tarefa aqui",
+  "descricao": "Coloque a descrição da sua tarefa aqui",
+  "deadline": "Coloque o prazo da sua tarefa usando este formato: 2025-05-25",
+  "progresso": "Coloque aqui se a sua tarefa está pendente, em andamento ou feita",
+  "prioridade": "Coloque aqui a prioridade da sua tarefa (alta, média ou baixa)"
+}
+
+```
+<br> <br>
 
 <p align = "center"> Figura 23 - Exemplo de requisição de criar tarefa</p>
 <div align = "center">
@@ -373,6 +427,7 @@ node server.js
 <p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
 <br>
 
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 4:** clique no botão Send. A resposta esperada é o retorno dos dados da tarefa que foi cadastrada (figura 24). Além disso, a figura 25 mostra a tarefa cadastrada no Supabase.<br>
 <p align = "center"> Figura 24 - Exemplo de resposta de criar tarefa</p>
 <div align = "center">
 <img src = "../assets/respostaCriarTarefa.png">
@@ -389,8 +444,27 @@ node server.js
 
 
 <h3> REQUISIÇÃO DE ATUALIZAR TAREFAS</h3>
-&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: PUT (substituir dados no servidor);
-&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/tarefas/1 (pode substituir esse número pelo id da tarefa);
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: PUT (substituir dados no servidor); <br>
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/tarefas/1 (pode substituir esse número pelo id da tarefa) <br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **Como testar a requisição de atualizar tarefas?**<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;Após ter cadastrado ao menos uma tarefa, atualize tarefas seguindo os passos subsequentes:<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 1:** selecione o método PUT no drop-down acima de "Params"<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 2:** insira a URL no campo em que está escrito "Enter URL or paste text", substituindo o número na URL pelo id da tarefa cadastrada (conforme retornado na resposta de login no campo id_tarefa). <br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 3:** insira os dados atualizados da tarefa nas linhas de comando que estão logo abaixo da seção de URL **usando o formato apresentado abaixo** . A exemplificação de uma requisição de atualização de tarefas está demonstrada na figura 26.<br>
+
+```
+{
+  "titulo": "Coloque o título da sua tarefa aqui",
+  "descricao": "Coloque a descrição da sua tarefa aqui",
+  "deadline": "Coloque o prazo da sua tarefa usando este formato: 2025-05-25",
+  "progresso": "Coloque aqui se a sua tarefa está pendente, em andamento ou feita",
+  "prioridade": "Coloque aqui a prioridade da sua tarefa (alta, média ou baixa)"
+}
+
+```
+<br> <br>
 
 <p align = "center"> Figura 26 - Exemplo de requisição de atualizar tarefa</p>
 <div align = "center">
@@ -398,6 +472,8 @@ node server.js
 </div>
 <p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
 <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 4:** clique no botão Send. A resposta esperada é a mensagem "Tarefa atualizada com sucesso" (figura 27). Além disso, a figura 28 mostra a tarefa atualizada no Supabase.<br>
 
 <p align = "center"> Figura 27 - Exemplo de resposta de atualizar tarefa</p>
 <div align = "center">
@@ -414,8 +490,15 @@ node server.js
 <br>
 
 <h3> REQUISIÇÃO DE LISTAR TAREFAS (DO USUÁRIO LOGADO)</h3>
-&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: GET (pegar dados do servidor);
-&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/tarefas;
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: GET (pegar dados do servidor); <br>
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/tarefas <br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **Como testar a requisição de listar tarefas DO USUÁRIO QUE ESTÁ LOGADO?**<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;Após ter cadastrado ao menos uma tarefa, liste tarefas seguindo os passos subsequentes:<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 1:** selecione o método GET no drop-down acima de "Params"<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 2:** insira a URL no campo em que está escrito "Enter URL or paste text". <br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 3:** No caso desta requisição, não é necessário inserir nenhum código em formato JSON nas linhas de comando, apenas clique em Send. Nesse sentido, a  exemplificação de uma requisição de listagem de tarefas está demonstrada na figura 29.<br>
 
 <p align = "center"> Figura 29 - Exemplo de requisição de listar tarefas</p>
 <div align = "center">
@@ -423,6 +506,8 @@ node server.js
 </div>
 <p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
 <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 4:** clique no botão Send. A resposta esperada é a listagem das tarefas do USUÁRIO LOGADO (figura 30).<br>
 
 <p align = "center"> Figura 30 - Exemplo de resposta de listar tarefas</p>
 <div align = "center">
@@ -433,8 +518,15 @@ node server.js
 
 
 <h3> REQUISIÇÃO DE LOGOUT DE USUÁRIO</h3>
-&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: GET;
-&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/logout;
+&nbsp; &nbsp; &nbsp; &nbsp; Método de requisição: GET; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; URL: http://localhost:3000/logout <br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **Como testar a requisição de logout?**<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;Faça logout seguindo os passos subsequentes:<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 1:** selecione o método GET no drop-down acima de "Params"<br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 2:** insira a URL no campo em que está escrito "Enter URL or paste text". <br>
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 3:** No caso desta requisição, não é necessário inserir nenhum código em formato JSON nas linhas de comando, apenas clique em Send. Nesse sentido, a  exemplificação de uma requisição de logout está demonstrada na figura 31.<br>
 
 <p align = "center"> Figura 31 - Exemplo de requisição de logout</p>
 <div align = "center">
@@ -442,6 +534,8 @@ node server.js
 </div>
 <p align = "center"> Fonte: material retirado do aplicativo do Postman.</p>
 <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**Passo 4:** clique no botão Send. A resposta esperada é a mensagem "Logout realizado com sucesso" (figura 32).<br>
 
 <p align = "center"> Figura 32 - Exemplo de resposta de logout</p>
 <div align = "center">
