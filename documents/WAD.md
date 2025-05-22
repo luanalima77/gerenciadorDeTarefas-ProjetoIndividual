@@ -139,7 +139,88 @@ CREATE TABLE TAREFA (
 - Controller (Controlador): essa parte atua como uma ponte entre Model e View, sendo responsável por receber as entradas do usuário, processá-las (geralmente com o auxílio do Model) e determinar qual resposta ou visualização (View) deve ser apresentada. Portanto, é ela que coordena o fluxo de dados.
 
 &nbsp; &nbsp; &nbsp; &nbsp;Dessa forma, criou-se a seguinte estrutura MVC para o vigente projeto (conforme a figura 3):
+<p align = "center"> Figura 3 - Diagrama MVC</p>
+<div align = "center">
+<img src = "../assets/Diagrama MVC.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
 
+<h3>Explicando o diagrama MVC</h3>
+<h4>Cliente</h4>
+&nbsp; &nbsp; &nbsp; &nbsp;Em linhas gerais, o segmento de cliente (usuário final) interage com a aplicação por meio de um navegador. A partir disso, as ações feitas pelo usuário são enviadas ao servidor, que processa as requisições e responde com as visualizações adequadas. <br>
+
+<h4>Servidor</h4>
+&nbsp; &nbsp; &nbsp; &nbsp;O servidor é a parte da aplicação responsável por receber, processar e responder às solicitações feitas pelos usuários por intermédio do navegador (cliente). Dessa forma, no contexto do vigente projeto, o servidor é composto pelas partes subsequentes: <br> <br>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; **Views (Visualizações)** <br>
+&nbsp; &nbsp; &nbsp; &nbsp;São as páginas que o usuário vê e interage. **É significativo pontuar que as views só serão implementadas, de fato, na parte 3 deste projeto (mas elas já foram planejadas), conforme as instruções da atividade**. Nesse sentido, cada view corresponde a uma funcionalidade: <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;- Login: contempla campos de email e senha. Envia os dados para o usuarioController.login;
+
+&nbsp; &nbsp; &nbsp; &nbsp;- Cadastro: possui campos de nome, email e senha. Envia os dados para usuarioController.cadastrarUsuario;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - Home: essa view exibe mensagem de boas-vindas, lista as tarefas do usuário e botões para criar tarefa, atualizar tarefa e logout;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - CriarTarefa: consiste em um formulário com campos título, descrição, deadline, progresso e prioridade. Além disso, envia os dados para tarefaController.salvarTarefa;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - AtualizarTarefa: basicamente, é um formulário semelhante ao de criação de tarefas. No entanto, ele atualiza tarefa via tarefaController.atualizarTarefa. <br> <br>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; **Controllers (controladores)** <br>
+&nbsp; &nbsp; &nbsp; &nbsp;Como adiantado anteriormente, os controllers recebem as requisições das views e coordenam a interação entre as views e os models. Desse modo, estão listados abaixo os controllers inerentes ao vigente projeto: <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**usuarioController**<br>
+&nbsp; &nbsp; &nbsp; &nbsp; - cadastrarUsuario: cria um novo usuário;
+
+&nbsp; &nbsp; &nbsp; &nbsp;- login: autentica um usuário existente;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - logout: encerra a sessão do usuário.
+<br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**tarefaController** <br>
+&nbsp; &nbsp; &nbsp; &nbsp; - salvarTarefa: salva uma nova tarefa no banco de dados;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - listarTarefas: retorna todas as tarefas do usuário;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - mostrarTarefa: mostra os detalhes de uma tarefa específica;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - atualizarTarefa: atualiza uma tarefa existente;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - excluirTarefa: remove uma tarefa do sistema.
+<br><br>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; **Models (modelos)** <br>
+&nbsp; &nbsp; &nbsp; &nbsp;Os models representam as estruturas de dados e, consequentemente, interagem diretamente com o banco de dados. Assim, os models do vigente projeto são:
+
+&nbsp; &nbsp; &nbsp; &nbsp;**usuario**
+
+&nbsp; &nbsp; &nbsp; &nbsp;- id_usuario: identificador único;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - nome_usuario: nome do usuário;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - email: email cadastrado;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - senha: senha criptografada. <br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;**tarefa**
+
+&nbsp; &nbsp; &nbsp; &nbsp; - id_tarefa: identificador único;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - titulo: título da tarefa;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - progresso: estado atual da tarefa (ex: “em andamento”, “concluído”);
+
+&nbsp; &nbsp; &nbsp; &nbsp; - prioridade: nível de prioridade da tarefa (baixa, média, alta);
+
+&nbsp; &nbsp; &nbsp; &nbsp; - usuario_id: chave estrangeira referenciando o usuário dono da tarefa.
+<br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; **Servidor de banco de dados**
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Em linhas gerais, o banco de dados é PostgreSQL. Ele armazena todos os dados dos usuários e tarefas. Por fim, os models do backend interagem diretamente com este banco para realizar operações de CRUD. <br> <br>
 
 # 4. COMO CONFIGURAR O BANCO DE DADOS E RODAR AS MIGRAÇÕES?
 ## 4.1 O Supabase

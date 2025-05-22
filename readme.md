@@ -7,11 +7,38 @@
 gerenciadorDeTarefas-ProjetoIndividual/
 │
 ├── assets/                     # Arquivos públicos como imagens e fontes
+|   └── bodyRaw.png
+|   └── cadastroBancoDeDados.png
+|   └── cadastroSupabase.png
 |   └── connect.png
+|   └── criarProjetoSupabase.png
+|   └── dadosConexao.png
+|   └── Diagrama MVC.png
+|   └── downloadPostman.png
+|   └── homeSupabase.png
+|   └── httpPostman.png
+|   └── interfaceSupabase.png
 |   └── modelo-conceitual-banco.png 
 |   └── modelo-logico-banco.png  
 |   └── modelo-fisico-banco.png
-|   └── sessionPooler.png    
+|   └── newPostman.png
+|   └── organizacaoSupabase.png
+|   └── requisicaoAtualizarTarefa.png
+|   └── requisicaoCadastro.png
+|   └── requisicaoCriarTarefa.png
+|   └── requisicaoListarTarefas.png
+|   └── requisicaoLogin.png
+|   └── requisicaoLogout.png
+|   └── requisicoesPostman.png
+|   └── respostaAtualizarTarefa.png
+|   └── respostaCadastro.png
+|   └── respostaCriarTarefa.png
+|   └── respostaListarTarefas.png
+|   └── respostaLogin.png
+|   └── respostaLogout.png
+|   └── sessionPooler.png
+|   └── tarefaAtualizadaBancoDeDados.png  
+|   └── tarefaBancoDeDados.png      
 |       
 ├── config/                     # Arquivos de configuração (ex: conexão com banco)
 │   └── database.js
@@ -43,6 +70,16 @@ gerenciadorDeTarefas-ProjetoIndividual/
 │   └── example.test.js
 |
 ├── views/                      # Templates e componentes visuais da aplicação
+|   └── AtualizarTarefa/
+|       └── index.ejs
+|   └── Cadastro/
+|       └── index.ejs
+|   └── CriarTarefa/
+|       └── index.ejs
+|   └── Home/
+|       └── index.ejs
+|   └── Login/
+|       └── index.ejs
 |
 ├── .gitignore                  # Arquivo para ignorar arquivos no Git
 |
