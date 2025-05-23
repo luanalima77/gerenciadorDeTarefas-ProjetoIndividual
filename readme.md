@@ -78,6 +78,8 @@ gerenciadorDeTarefas-ProjetoIndividual/
 |       └── index.ejs
 |   └── Home/
 |       └── index.ejs
+|   └── LandingPage/
+|       └── index.ejs
 |   └── Login/
 |       └── index.ejs
 |
