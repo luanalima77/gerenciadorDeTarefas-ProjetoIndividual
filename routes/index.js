@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
     res.render("LandingPage/index");
 });
 
+
 //Rota para a página de login.
 router.get("/login", (req, res) => {
     res.render("Login/index");
@@ -18,6 +19,16 @@ router.get("/login", (req, res) => {
 router.get("/cadastro", (req, res) => {
     res.render("Cadastro/index");
 });
+
+// Rota da Home (página depois do login)
+router.get('/home', (req, res) => {
+  if (!req.session.usuario_id) {
+    return res.redirect('/login');
+  }
+  // Renderiza a view Home/index.ejs
+  res.render('Home/index');
+});
+
 
 //Rotas de ações de usuário.
 router.post("/login", usuarioController.login);

@@ -6,7 +6,29 @@
   <link rel="stylesheet" href="/styles/style.css">
 </head>
 
-<body>
-    <h1>Cadastro</h1>
+<body class = "login__and_sign__up__body">
+  <main class = "login__and_sign__up__body__main">
+    <div class = "login__and__sign__up__main__container">
+
+      <form class="login__and__sign__up__main__container__left">
+        <h1 class="login__and__sign__up__main__container__left__title">Cadastro</h1>
+
+        <label for = "name" class = "labels">Nome</label>
+        <input type ="text" placeholder="Digite seu email aqui" class = "inputs" id = "name">
+
+        <label for = "email" class = "labels">Email</label>
+        <input type ="text" placeholder="Digite seu email aqui" class = "inputs" id = "email">
+        
+        <label for = "password" class = "labels">Senha</label>
+        <input type="password" placeholder="Digite sua senha aqui" class = "inputs" id = "password">
+
+        <button type = "submit" class = "login__sign__up__button">Cadastrar-se</button>
+
+        <a href="/login" class = "go__to__sign__up">Já possui conta? Clique aqui para fazer login!</a>
+      </form>
+    </div>
+  </main>
+    
 </body>
 </html>
+

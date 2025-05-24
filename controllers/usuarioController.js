@@ -37,10 +37,7 @@ exports.login = async (req, res) => {
     //Salvando o id do usuário na sessão.
     req.session.usuario_id = usuario.id_usuario; 
 
-     res.status(200).json({
-      mensagem: 'Login realizado com sucesso',
-      dados: usuario
-    });
+     return res.redirect('/home');  
 
   } catch (err) {
     console.error('Erro no login:', err.message);

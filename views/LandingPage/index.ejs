@@ -4,36 +4,50 @@
   <meta charset="UTF-8">
   <title>Task</title>
   <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/landingPage.css">
 </head>
 
 <body>
+  
+ 
 
-  <!--Cabeçalho-->
-  <header class = "header__landing__page">
-    <h1 class = "header__title">Task</h1>
-    <nav>
-      <a href="/login" class = "header__link login__link">Login</a>
-      <a href="/cadastro" class = "header__link sign__up__link">Cadastro</a>
-    </nav>
-  </header>
+  <!-- Conteúdo principal da landing page -->
+  <main class="landing__page__body">
 
-  <!--Conteúdo principal da landing page-->
-  <main>
-    <body class = "landing__page__body">
-      <section class = "landing__page__main__section">
-        <div class = "landing__page__main__section__container">
-          <h1 class = "landing__page__title">Gerencie tarefas eficientemente</h1>
-          <a href="/cadastro" class = "header__link sign__up__link">Inscreva-se grátis</a>
+    <header class="header__landing__page">
+      <h1 class="header__title">Task</h1>
+      <nav>
+        <a href="/login" class="header__link login__link">Login</a>
+        <a href="/cadastro" class="header__link sign__up__link">Cadastro</a>
+      </nav>
+    </header>
+
+      <section class="landing__page__main__section">
+        <div class="landing__page__main__section__container">
+          <h1 class="landing__page__title">Gerencie tarefas eficientemente</h1>
+          <a href="/cadastro" class="header__link sign__up__link">Inscreva-se grátis</a>
         </div>
       </section>
-    </body>
+
+        <!-- Rodapé -->
+    <footer class="footer__landing__page">
+      <div class="footer__landing__page__container">
+        <h3 class="footer__landing__page__container__title">Task</h3>
+        <a href="/cadastro" class="header__link sign__up__link">Inscreva-se grátis</a>
+      </div>
+    </footer>
   </main>
 
-  <footer class = "footer__landing__page">
-    <div class = "footer__landing__page__container">
-        <h3 class = "footer__landing__page__container__title">Task</h3>
-        <a href="/cadastro" class = "header__link sign__up__link">Inscreva-se grátis</a>
-    </div>
-  </footer>
+  <!-- Biblioteca ScrollReveal para animações -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal().reveal('.landing__page__title', {
+      delay: 200,
+      duration: 1000,
+      distance: '50px',
+      origin: 'bottom',
+      reset: false
+    });
+  </script>
 </body>
 </html>
