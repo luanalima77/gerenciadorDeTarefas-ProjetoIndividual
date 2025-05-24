@@ -10,17 +10,17 @@
   <main class = "login__and_sign__up__body__main">
     <div class = "login__and__sign__up__main__container">
 
-      <form class="login__and__sign__up__main__container__left">
+      <form class="login__and__sign__up__main__container__left" id="sign__up__form" method="POST" action="/cadastro">
         <h1 class="login__and__sign__up__main__container__left__title">Cadastro</h1>
 
         <label for = "name" class = "labels">Nome</label>
-        <input type ="text" placeholder="Digite seu email aqui" class = "inputs" id = "name">
+        <input type ="text" placeholder="Digite seu nome aqui" class = "inputs" id = "name" required>
 
         <label for = "email" class = "labels">Email</label>
-        <input type ="text" placeholder="Digite seu email aqui" class = "inputs" id = "email">
+        <input type ="text" placeholder="Digite seu email aqui" class = "inputs" id = "email" required>
         
         <label for = "password" class = "labels">Senha</label>
-        <input type="password" placeholder="Digite sua senha aqui" class = "inputs" id = "password">
+        <input type="password" placeholder="Digite sua senha aqui" class = "inputs" id = "password" required>
 
         <button type = "submit" class = "login__sign__up__button">Cadastrar-se</button>
 
@@ -29,6 +29,54 @@
     </div>
   </main>
     
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  <script>
+    const form = document.getElementById("sign__up__form");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const nome_usuario = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("password").value;
+
+      try {
+        const response = await fetch("/cadastro", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nome_usuario, email, senha }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          Swal.fire({
+            icon: "success",
+            title: "Sucesso!",
+            text: data.mensagem,
+            timer: 2000,
+            showConfirmButton: false,
+          }).then(() => {
+            window.location.href = "/home";
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Erro",
+            text: data.error || "Erro ao realizar cadastro",
+          });
+        }
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: "Erro na comunicação com o servidor",
+        });
+        console.error(error);
+      }
+    });
+  </script>
 </body>
 </html>
 

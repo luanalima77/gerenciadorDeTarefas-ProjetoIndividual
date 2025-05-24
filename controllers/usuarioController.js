@@ -5,6 +5,12 @@ const Usuario = require('../models/usuario');
 exports.cadastrarUsuario = async (req, res) => {
   const { nome_usuario, email, senha } = req.body;
 
+  //O usuário só pode cadastrar um email uma vez.
+  const usuarioExistente = await Usuario.encontrarPeloEmail(email);
+    if (usuarioExistente) {
+      return res.status(409).json({ error: 'Email já cadastrado.' });
+    }
+
   try {
     //Detalhe importante aqui no projeto: a senha é armazenada de forma criptografada.
     const senhaHash = await bcrypt.hash(senha, 10);
