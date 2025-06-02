@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
+const Usuario = require('../models/usuario'); 
+const Tarefa = require('../models/tarefa'); 
 const usuarioController = require('../controllers/usuarioController');
 const tarefaController = require('../controllers/tarefaController');
 
@@ -20,14 +21,8 @@ router.get("/cadastro", (req, res) => {
     res.render("Cadastro/index");
 });
 
-// Rota da Home (página depois do login)
-router.get('/home', (req, res) => {
-  if (!req.session.usuario_id) {
-    return res.redirect('/login');
-  }
-  // Renderiza a view Home/index.ejs
-  res.render('Home/index');
-});
+// Rota da Home (página depois do login).
+router.get('/home', usuarioController.mostrarHome);
 
 
 //Rotas de ações de usuário.

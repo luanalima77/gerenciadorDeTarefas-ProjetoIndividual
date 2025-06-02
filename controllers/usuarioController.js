@@ -1,18 +1,17 @@
 const bcrypt = require('bcrypt');
 const Usuario = require('../models/usuario');
+const Tarefa = require('../models/tarefa');
 
-// Cadastrar usuário.
+// Cadastrar usuário
 exports.cadastrarUsuario = async (req, res) => {
   const { nome_usuario, email, senha } = req.body;
 
-  //O usuário só pode cadastrar um email uma vez.
   const usuarioExistente = await Usuario.encontrarPeloEmail(email);
-    if (usuarioExistente) {
-      return res.status(409).json({ error: 'Email já cadastrado.' });
-    }
+  if (usuarioExistente) {
+    return res.status(409).json({ error: 'Email já cadastrado.' });
+  }
 
   try {
-    //Detalhe importante aqui no projeto: a senha é armazenada de forma criptografada.
     const senhaHash = await bcrypt.hash(senha, 10);
     const novoUsuario = await Usuario.criar(nome_usuario, email, senhaHash);
 
@@ -24,7 +23,7 @@ exports.cadastrarUsuario = async (req, res) => {
   }
 };
 
-// Login do usuário.
+// Login do usuário
 exports.login = async (req, res) => {
   const { email, senha } = req.body;
 
@@ -40,11 +39,8 @@ exports.login = async (req, res) => {
       return res.status(401).json({ error: 'Email ou senha incorretos.' });
     }
 
-    //Salvando o id do usuário na sessão.
     req.session.usuario_id = usuario.id_usuario; 
-
     return res.status(200).json({ mensagem: 'Login realizado com sucesso' });
- 
 
   } catch (err) {
     console.error('Erro no login:', err.message);
@@ -52,8 +48,7 @@ exports.login = async (req, res) => {
   }
 };
 
-
-//Logout do usuário.
+// Logout do usuário
 exports.logout = (req, res) => {
   req.session.destroy(err => {
     if (err) {
@@ -63,4 +58,33 @@ exports.logout = (req, res) => {
     console.log('Logout realizado com sucesso');
     res.status(200).json({ mensagem: 'Logout realizado com sucesso' });
   });
+};
+
+//Mostrando a home com os dados do usuário.
+exports.mostrarHome = async (req, res) => {
+  if (!req.session.usuario_id) {
+    return res.redirect('/login');
+  }
+
+  try {
+    const usuario = await Usuario.encontrarPeloId(req.session.usuario_id);
+    if (!usuario) {
+      return res.redirect('/login');
+    }
+
+    const tarefas = await Tarefa.encontrarTarefasDoUsuario(req.session.usuario_id);
+    const total = tarefas.length;
+    const concluidas = tarefas.filter(t => t.status === 'concluída').length;
+    const aFazer = total - concluidas;
+
+    res.render('Home/index', {
+      nomeUsuario: usuario.nome_usuario,
+      totalTarefas: total,
+      tarefasConcluidas: concluidas,
+      tarefasAFazer: aFazer
+    });
+  } catch (err) {
+    console.error('Erro ao carregar home:', err);
+    res.status(500).send('Erro no servidor');
+  }
 };

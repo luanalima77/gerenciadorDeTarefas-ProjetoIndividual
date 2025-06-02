@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Task: home</title>
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/home.css">
+</head>
+
+<body>
+  <!-- Conteúdo principal da home-->
+  <main class="home__body">
+    <header class="header__home">
+        <div class="header__home__menu">
+            <button class="header__home__menu__button">&#9776;</button>
+            <div class="header__home__menu__button__content">
+            <a href="/logout">Logout</a>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+    </header>
+
+    <section class="home__body__dashboard">
+        <div class = "home__body__dashboard__titulo__container">
+          <h1 class="home__body__dashboard__titulo">Bem-vindo(a), <%= nomeUsuario %></h1>
+          <h2 class="home__body__dashboard__subtitulo">Dashboard</h2>
+        </div>
+        
+
+        <div class="home__body__dashboard__cartoes">
+      <div class="home__body__dashboard__cartao cartao__azul">
+        <h3 class="home__body__dashboard__cartao__titulo">Tarefas a fazer</h3>
+        <h2 class="home__body__dashboard__cartao__numero"><%= tarefasAFazer %></h2>
+      </div>
+
+      <div class="home__body__dashboard__cartao" >
+        <h3 class="home__body__dashboard__cartao__titulo">Tarefas concluídas</h3>
+        <h2 class="home__body__dashboard__cartao__numero"><%= tarefasConcluidas %></h2>
+      </div>
+
+      <div class="home__body__dashboard__cartao">
+        <h3 class="home__body__dashboard__cartao__titulo">Próximas do vencimento</h3>
+        <h2 class="home__body__dashboard__cartao__numero"><%= totalTarefas %></h2>
+      </div>
+
+      <div class="home__body__dashboard__cartao">
+        <h3 class="home__body__dashboard__cartao__titulo">Total de tarefas</h3>
+        <h2 class="home__body__dashboard__cartao__numero"><%= totalTarefas %></h2>
+      </div>
+    </div>
+
+        
+        <div class = "home__body__dashboard__titulo__container">
+          <h2 class="home__body__dashboard__subtitulo">Gráficos</h2>
+        </div>
+
+        <div class = "graficos">
+          <canvas id="grafico1"></canvas>
+          <canvas id="grafico2"></canvas>
+        </div>
+        
+
+    </section>
+  </main>
+
+  <!-- Biblioteca ScrollReveal para animações -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal().reveal('.landing__page__title', {
+      delay: 200,
+      duration: 1000,
+      distance: '50px',
+      origin: 'bottom',
+      reset: false
+    });
+  </script>
+
+    <script>
+    const botaoMenu = document.querySelector(".header__home__menu__button");
+    const conteudoMenu = document.querySelector(".header__home__menu__button__content");
+    const overlay = document.querySelector('.overlay');
+
+    botaoMenu.addEventListener('click', () => {
+        const aberto = conteudoMenu.classList.toggle('open');
+        overlay.classList.toggle('active');
+        botaoMenu.innerHTML = aberto ? '&times;' : '&#9776;';
+    });
+
+    overlay.addEventListener('click', () => {
+        conteudoMenu.classList.remove('open');
+        overlay.classList.remove('active');
+        botaoMenu.innerHTML = '&#9776;';
+    });
+
+    document.addEventListener('click', (event) => {
+        const clicado = conteudoMenu.contains(event.target) || botaoMenu.contains(event.target);
+        if (!clicado && conteudoMenu.classList.contains('open')) {
+        conteudoMenu.classList.remove('open');
+        overlay.classList.remove('active');
+        botaoMenu.innerHTML = '&#9776;';
+        }
+    });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctxTarefas = document.getElementById('grafico1').getContext('2d');
+      const ctxOutro = document.getElementById('grafico2').getContext('2d');
+
+      // Primeiro gráfico (doughnut)
+      new Chart(ctxTarefas, {
+        type: 'pie',
+        data: {
+          labels: ['A Fazer', 'Concluídas'],
+          datasets: [{
+            label: 'Tarefas',
+            data: [<%= tarefasAFazer %>, <%= tarefasConcluidas %>],
+            backgroundColor: ['#FF6384', '#36A2EB'],
+            borderColor: ['#fff', '#fff'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }
+      });
+
+      // Segundo gráfico (exemplo: barras com totais)
+      new Chart(ctxOutro, {
+        type: 'bar',
+        data: {
+          labels: ['Total de Tarefas'],
+          datasets: [{
+            label: 'Quantidade',
+            data: [<%= totalTarefas %>],
+            backgroundColor: ['#FFCE56'],
+            borderColor: ['#fff'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: { beginAtZero: true }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+    </script>
+
+
+</body>
+</html>
