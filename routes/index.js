@@ -24,6 +24,9 @@ router.get("/cadastro", (req, res) => {
 // Rota da Home (página depois do login).
 router.get('/home', usuarioController.mostrarHome);
 
+router.get('/tarefas/criar', (req, res) => {
+  res.render('CriarTarefa/index');
+});
 
 //Rotas de ações de usuário.
 router.post("/login", usuarioController.login);

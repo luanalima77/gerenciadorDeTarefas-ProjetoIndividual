@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task: criar tarefa</title>
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/criarTarefa.css" />
+
+   <!--SweetAlert2: esse plugin mostra mensagens de feedback de modo mais bonitinho-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<header class="header__home">
+        <div class="header__home__menu">
+            <button class="header__home__menu__button">&#9776;</button>
+            <div class="header__home__menu__button__content">
+            <a href="/logout">Logout</a>
+            <a href="/tarefas/criar">Criar tarefa</a>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+    </header>
+
+  <main class="form-container">
+    <h1>Criar nova tarefa</h1>
+
+    <form id="form-criar-tarefa">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" name="titulo" required />
+
+      <label for="descricao">Descrição:</label>
+      <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+      <label for="deadline">Prazo (deadline):</label>
+      <input type="date" id="deadline" name="deadline" required />
+
+      <label for="progresso">Progresso (%):</label>
+      <input type="number" id="progresso" name="progresso" min="0" max="100" value="0" required />
+
+      <label for="prioridade">Prioridade:</label>
+      <select id="prioridade" name="prioridade" required>
+        <option value="">--Selecione--</option>
+        <option value="baixa">Baixa</option>
+        <option value="media">Média</option>
+        <option value="alta">Alta</option>
+      </select>
+
+      <button type="submit">Criar Tarefa</button>
+    </form>
+  </main>
+
+  <script>
+  document.getElementById('form-criar-tarefa').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const dados = {
+      titulo: e.target.titulo.value,
+      descricao: e.target.descricao.value,
+      deadline: e.target.deadline.value,
+      progresso: Number(e.target.progresso.value),
+      prioridade: e.target.prioridade.value,
+    };
+
+    try {
+      const resposta = await fetch('/tarefas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+
+      if (resposta.ok) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Tarefa criada!',
+          text: 'Sua tarefa foi registrada com sucesso.',
+          confirmButtonColor: '#0038B0'
+        });
+        e.target.reset();
+      } else {
+        const erro = await resposta.text();
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro ao criar tarefa',
+          text: erro,
+          confirmButtonColor: '#c0392b'
+        });
+      }
+    } catch (err) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro no servidor',
+        text: 'Tente novamente mais tarde.',
+        confirmButtonColor: '#c0392b'
+      });
+    }
+  });
+</script>
+
+   <script>
+    const botaoMenu = document.querySelector(".header__home__menu__button");
+    const conteudoMenu = document.querySelector(".header__home__menu__button__content");
+    const overlay = document.querySelector('.overlay');
+
+    botaoMenu.addEventListener('click', () => {
+        const aberto = conteudoMenu.classList.toggle('open');
+        overlay.classList.toggle('active');
+        botaoMenu.innerHTML = aberto ? '&times;' : '&#9776;';
+    });
+
+    overlay.addEventListener('click', () => {
+        conteudoMenu.classList.remove('open');
+        overlay.classList.remove('active');
+        botaoMenu.innerHTML = '&#9776;';
+    });
+
+    document.addEventListener('click', (event) => {
+        const clicado = conteudoMenu.contains(event.target) || botaoMenu.contains(event.target);
+        if (!clicado && conteudoMenu.classList.contains('open')) {
+        conteudoMenu.classList.remove('open');
+        overlay.classList.remove('active');
+        botaoMenu.innerHTML = '&#9776;';
+        }
+    });
+    </script>
+
+</body>
+</html>

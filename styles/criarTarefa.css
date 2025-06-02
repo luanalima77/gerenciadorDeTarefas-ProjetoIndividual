@@ -1,0 +1,142 @@
+/* Container principal do formulário */
+.form-container {
+  max-width: 480px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  font-family: var(--font), sans-serif;
+  color: var(--black);
+}
+
+/* Título principal */
+.form-container h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--main-blue);
+}
+
+/* Labels */
+.form-container label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--secondary-blue);
+}
+
+/* Inputs, textarea e select */
+.form-container input[type="text"],
+.form-container input[type="date"],
+.form-container input[type="number"],
+.form-container textarea,
+.form-container select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.25rem;
+  border: 1.5px solid var(--inputs-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: var(--font), sans-serif;
+  color: var(--black);
+  transition: border-color 0.3s ease;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="date"]:focus,
+.form-container input[type="number"]:focus,
+.form-container textarea:focus,
+.form-container select:focus {
+  border-color: var(--main-blue);
+  outline: none;
+  box-shadow: 0 0 6px var(--main-blue);
+  background-color: #f9faff;
+}
+
+/* Textarea ajuste */
+.form-container textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Botão */
+.form-container button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--main-blue);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: var(--secondary-blue);
+}
+
+/* Mensagem de feedback */
+#mensagem {
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Mensagens positivas */
+#mensagem.sucesso {
+  color: green;
+}
+
+/* Mensagens de erro */
+#mensagem.erro {
+  color: red;
+}
+
+/* HEADER (ajuste básico, considerando seu header.css já) */
+.header__home {
+  background-color: var(--main-blue);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  font-family: var(--font), sans-serif;
+}
+
+.header__home__menu__button {
+  font-size: 1.5rem;
+  color: var(--white);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Ajuste para menu dropdown (se quiser) */
+.header__home__menu__button__content a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.header__home__menu__button__content a:hover {
+  background-color: var(--secondary-blue);
+}
+
+/* Overlay */
+.overlay.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+}
