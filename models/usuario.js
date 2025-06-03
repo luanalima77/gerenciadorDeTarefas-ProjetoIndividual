@@ -23,6 +23,11 @@ const usuario = {
       [id]
     );
     return resultado.rows[0];
+  },
+
+  async excluirPorId(id){
+    const query = "DELETE FROM usuario WHERE id_usuario = $1";
+    await pool.query(query, [id]);
   }
 };
 

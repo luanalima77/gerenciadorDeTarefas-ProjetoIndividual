@@ -40,7 +40,8 @@ form.addEventListener('submit', async (event) => {
                 title: 'Sucesso!',
                 text: data.mensagem,
                 timer: 2000,
-                showConfirmButton: false
+                showConfirmButton: false,
+                scrollbarPadding: false
             }).then(() => {
                 //Redirecionar para home depois do alerta fechar.
                 window.location.href = '/home';

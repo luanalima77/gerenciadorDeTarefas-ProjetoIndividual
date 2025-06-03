@@ -29,15 +29,17 @@ const tarefa = {
   },
 
   async excluirTarefa(id) {
-  const resultado = await pool.query(
-    'DELETE FROM TAREFA WHERE id_tarefa = $1 RETURNING *',
-    [id]
-  );
-  return resultado.rows[0];
-}
+    const resultado = await pool.query(
+      'DELETE FROM TAREFA WHERE id_tarefa = $1 RETURNING *',
+      [id]
+    );
+    return resultado.rows[0];
+  },
 
+  async excluirPorUsuario(usuarioId) {
+    const query = "DELETE FROM TAREFA WHERE usuario_id = $1";
+    await pool.query(query, [usuarioId]);
+  },
 };
-
-
 
 module.exports = tarefa;

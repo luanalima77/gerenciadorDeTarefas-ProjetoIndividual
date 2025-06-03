@@ -39,6 +39,7 @@ router.get('/tarefas/minhasTarefas', (req, res) => {
 router.post("/login", usuarioController.login);
 router.post("/cadastro", usuarioController.cadastrarUsuario);
 router.get("/logout", usuarioController.logout);
+router.delete("/excluirConta", usuarioController.excluirConta);
 
 //Rotas de tarefas.
 router.get("/tarefas", tarefaController.listarTarefas);

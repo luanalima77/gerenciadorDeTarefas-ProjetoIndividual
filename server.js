@@ -32,5 +32,5 @@ app.use('/', routes);
 
 //Inicializando o servidor, mostrando em que porta ele está rodando.
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

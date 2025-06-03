@@ -31,6 +31,7 @@ form.addEventListener("submit", async (event) => {
           icon: "warning",
           title: "Email inválido",
           text: "Por favor, insira um email válido.",
+          scrollbarPadding: false
         });
         return;
       }
@@ -43,6 +44,7 @@ form.addEventListener("submit", async (event) => {
         icon: "warning",
         title: "Senha inválida",
         text: "A senha deve ter pelo menos 8 caracteres, 1 letra maiúscula e 1 caractere especial.",
+        scrollbarPadding: false
       });
       return; 
     }
@@ -67,6 +69,7 @@ form.addEventListener("submit", async (event) => {
             text: data.mensagem,
             timer: 2000,
             showConfirmButton: false,
+            scrollbarPadding: false
           }).then(() => {
             window.location.href = "/login";
           });
@@ -75,6 +78,7 @@ form.addEventListener("submit", async (event) => {
             icon: "error",
             title: "Erro",
             text: data.error || "Erro ao realizar cadastro",
+            scrollbarPadding: false
           });
         }
       } catch (error) {
@@ -82,6 +86,7 @@ form.addEventListener("submit", async (event) => {
           icon: "error",
           title: "Erro",
           text: "Erro na comunicação com o servidor",
+          scrollbarPadding: false
         });
         console.error(error);
       }

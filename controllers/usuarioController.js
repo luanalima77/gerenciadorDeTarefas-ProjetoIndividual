@@ -60,6 +60,35 @@ exports.logout = (req, res) => {
   });
 };
 
+//Exclusão de conta.
+exports.excluirConta = async (req, res) => {
+  const usuarioId = req.session.usuario_id;
+
+  if (!usuarioId) {
+    return res.status(401).json({ error: "Usuário não autenticado" });
+  }
+
+  try {
+    //Excluindo tarefas relacionadas ao usuário.
+    await Tarefa.excluirPorUsuario(usuarioId);
+
+    //Excluindo usuário.
+    await Usuario.excluirPorId(usuarioId);
+
+    //Encerrando sessão após a exclusão de conta.
+    req.session.destroy(err => {
+      if (err) {
+        console.error("Erro ao destruir sessão após exclusão:", err);
+      }
+    });
+
+    res.status(200).json({ mensagem: "Conta excluída com sucesso." });
+  } catch (err) {
+    console.error("Erro ao excluir conta:", err);
+    res.status(500).json({ error: "Erro ao excluir conta" });
+  }
+};
+
 //Mostrando a home com os dados do usuário.
 exports.mostrarHome = async (req, res) => {
   if (!req.session.usuario_id) {
