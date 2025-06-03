@@ -109,13 +109,29 @@ function aplicarFiltros() {
     const status = document.getElementById('filtro-status').value;
     const deadline = document.getElementById('filtro-deadline').value;
 
+   
     const filtradas = window.todasTarefas.filter(tarefa => {
+
+     //Formatando as datas das tarefas já cadastradas para o padrão usado no Brasil
+    const dataTarefa = new Date(tarefa.deadline);
+    const dataFormatada = new Intl.DateTimeFormat("pt-br").format(dataTarefa);
+
+    //Transformando a deadline colocada no filtro de busca para o padrão do Brasil.
+    let deadlineFormatada;
+    if(deadline){
+      const [ano,mes,dia] = deadline.split("-");
+      deadlineFormatada = `${dia}/${mes}/${ano}`
+      console.log(deadlineFormatada);
+    }
+
     const tituloMatch = tarefa.titulo.toLowerCase().includes(titulo);
     const prioridadeMatch = !prioridade || tarefa.prioridade.toLowerCase() === prioridade.toLowerCase();
     const statusMatch = !status || tarefa.progresso.toLowerCase() === status.toLowerCase();
-    const deadlineMatch = !deadline || tarefa.deadline === deadline;
-
+    const deadlineMatch = !deadline || dataFormatada == deadlineFormatada;
+    console.log(tarefa.deadline);
+    console.log(deadlineMatch);
     return tituloMatch && prioridadeMatch && statusMatch && deadlineMatch;
+    
   });
 
   aplicarEventos(filtradas);

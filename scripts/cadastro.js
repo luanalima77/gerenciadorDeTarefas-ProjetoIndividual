@@ -9,6 +9,19 @@ form.addEventListener("submit", async (event) => {
     const email = document.getElementById("email").value;
     const senha = document.getElementById("password").value;
 
+    //Verificando a força da senha.
+    const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/;
+
+    if(!senhaRegex.test(senha)){
+      Swal.fire({
+        icon: "warning",
+        title: "Senha inválida",
+        text: "A senha deve ter pelo menos 8 caracteres, 1 letra maiúscula e 1 caractere especial.",
+      });
+      return; 
+    }
+
+
     //Usando Fetch API para mandar os dados de cadastro para o banco por meio da rota /cadastro.
     try {
         const response = await fetch("/cadastro", {
