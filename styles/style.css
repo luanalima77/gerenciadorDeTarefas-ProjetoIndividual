@@ -3,12 +3,14 @@
 @import url("/styles/loginAndSignUp.css");
 @import url("/styles/home.css");
 @import url("/styles/header.css");
+@import url("/styles/listarTarefas.css");
 
 :root{
     --font: "Poppins";
     --main-blue: #0038B0;
     --secondary-blue: #1202ad;
     --white: #FFFFFF;
+     --gray: #f1f1f1;
     --inputs-color: #E4E4E4;
     --inputs-text-color: #9B9B9B;
     --black: #000000;

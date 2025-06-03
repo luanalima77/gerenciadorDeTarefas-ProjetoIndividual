@@ -1,82 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Task: login</title>
-  <link rel="stylesheet" href="/styles/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Task: login</title>
+    <link rel="stylesheet" href="/styles/style.css">
+  </head>
 
-<body class="login__and_sign__up__body">
-  <main class="login__and_sign__up__body__main">
-    <div class="login__and__sign__up__main__container">
+  <body class="login__and_sign__up__body">
+    <main class="login__and_sign__up__body__main">
+      <div class="login__and__sign__up__main__container">
 
-      <form id="login__form" class="login__and__sign__up__main__container__left" method="POST" action="/login">
-        <h1 class="login__and__sign__up__main__container__left__title">Login</h1>
+        <form id="login__form" class="login__and__sign__up__main__container__left" method="POST" action="/login">
+          <h1 class="login__and__sign__up__main__container__left__title">Login</h1>
 
-        <label for="email" class="labels">Email</label>
-        <input type="text" placeholder="Digite seu email aqui" class="inputs" id="email" name="email" required>
+          <label for="email" class="labels">Email</label>
+          <input type="text" placeholder="Digite seu email aqui" class="inputs" id="email" name="email" required>
 
-        <label for="password" class="labels">Senha</label>
-        <input type="password" placeholder="Digite sua senha aqui" class="inputs" id="password" name="senha" required>
+          <label for="password" class="labels">Senha</label>
+          <input type="password" placeholder="Digite sua senha aqui" class="inputs" id="password" name="senha" required>
 
-        <button type="submit" class="login__sign__up__button">Entrar</button>
+          <button type="submit" class="login__sign__up__button">Entrar</button>
 
-        <a href="/cadastro" class="go__to__sign__up">Não possui conta? Clique aqui e cadastre-se!</a>
-      </form>
-    </div>
-  </main>
+          <a href="/cadastro" class="go__to__sign__up">Não possui conta? Clique aqui e cadastre-se!</a>
+        </form>
+      </div>
+    </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <script>
-    const form = document.getElementById('login__form');
-
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      // Capturando email e senha do usuário.
-      const email = document.getElementById('email').value;
-      const senha = document.getElementById('password').value;
-
-      try {
-        const response = await fetch('/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, senha })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-          // Login OK
-          Swal.fire({
-            icon: 'success',
-            title: 'Sucesso!',
-            text: data.mensagem,
-            timer: 2000,
-            showConfirmButton: false
-          }).then(() => {
-            //Redirecionar para home depois do alerta fechar.
-            window.location.href = '/home';
-          });
-
-        } else {
-          //Erro no login (ex: senha incorreta).
-          Swal.fire({
-            icon: 'error',
-            title: 'Erro',
-            text: data.error || 'Erro ao realizar login'
-          });
-        }
-      } catch (error) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Erro',
-          text: 'Erro na comunicação com o servidor'
-        });
-        console.error(error);
-      }
-    });
-  </script>
-</body>
+    <script src = "/scripts/l"></script>
+  </body>
 </html>

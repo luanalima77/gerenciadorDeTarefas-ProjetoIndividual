@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Task: listar tarefas</title>
+        <link rel="stylesheet" href="/styles/style.css" />
+        <link rel="stylesheet" href="/styles/header.css" />
+        <link rel="stylesheet" href="/styles/listarTarefas.css" />
+    </head>
+    <body>
+        <!--Importando o header da pasta components.-->
+        <%- include('../components/header') %>
+        <main class="container">
+            <h1>Minhas Tarefas</h1>
+            <div id="listaTarefas" class="lista-tarefas"></div>
+        </main>
+
+        <!--Arquivos JavaScript externos que são usados na página.-->
+        <script src="/scripts/listarTarefas.js"></script>
+        <script src="/scripts/abrirMenuHamburguer.js"></script>
+    </body>
+</html>

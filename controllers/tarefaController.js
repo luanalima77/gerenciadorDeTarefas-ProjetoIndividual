@@ -2,7 +2,7 @@ const Tarefa = require('../models/tarefa');
 const { format } = require('date-fns');
 const { ptBR } = require('date-fns/locale');
 
-//Salvando nova tarefa no banco de dados.
+// Salva nova tarefa no banco de dados
 exports.salvarTarefa = async (req, res) => {
   try {
     if (!req.session.usuario_id) return res.status(401).json({ erro: 'Usuário não autenticado' });
@@ -14,14 +14,14 @@ exports.salvarTarefa = async (req, res) => {
 
     const novaTarefa = await Tarefa.criar(dadosTarefa);
     console.log('Tarefa criada com sucesso:', novaTarefa);
-    res.json(novaTarefa);
+    res.status(201).json(novaTarefa);
   } catch (erro) {
     console.error('Erro ao salvar tarefa:', erro);
     res.status(500).json({ erro: 'Erro ao salvar tarefa' });
   }
 };
 
-//Listando tarefas do usuário logado.
+// Lista tarefas do usuário logado, formatando data antes
 exports.listarTarefas = async (req, res) => {
   try {
     if (!req.session.usuario_id) return res.status(401).json({ erro: 'Usuário não autenticado' });
@@ -29,19 +29,21 @@ exports.listarTarefas = async (req, res) => {
     const usuario_id = req.session.usuario_id;
     const tarefas = await Tarefa.encontrarTarefasDoUsuario(usuario_id);
 
-    tarefas.forEach(t => {
-      t.data_formatada = format(new Date(t.deadline), 'dd/MM/yyyy', { locale: ptBR });
-    });
+    // Formata a data deadline em dd/MM/yyyy
+    const tarefasFormatadas = tarefas.map(t => ({
+      ...t,
+      data_formatada: t.deadline ? format(new Date(t.deadline), 'dd/MM/yyyy', { locale: ptBR }) : null,
+    }));
 
-    console.log('Tarefas do usuário:', tarefas);
-    res.json(tarefas);
+    console.log('Tarefas do usuário:', tarefasFormatadas);
+    res.json(tarefasFormatadas);
   } catch (erro) {
     console.error('Erro ao listar tarefas:', erro);
     res.status(500).json({ erro: 'Erro ao listar tarefas' });
   }
 };
 
-//Visualizando uma tarefa específica que foi cadastrada no banco.
+// Mostra tarefa específica, validando usuário
 exports.mostrarTarefa = async (req, res) => {
   try {
     if (!req.session.usuario_id) return res.status(401).json({ erro: 'Usuário não autenticado' });
@@ -53,7 +55,6 @@ exports.mostrarTarefa = async (req, res) => {
       return res.status(403).json({ erro: 'Acesso negado' });
     }
 
-    console.log('Tarefa encontrada:', tarefa);
     res.json(tarefa);
   } catch (erro) {
     console.error('Erro ao buscar tarefa:', erro);
@@ -61,7 +62,7 @@ exports.mostrarTarefa = async (req, res) => {
   }
 };
 
-//Atualizando alguma tarefa existente.
+// Atualiza tarefa, validando usuário
 exports.atualizarTarefa = async (req, res) => {
   try {
     if (!req.session.usuario_id) return res.status(401).json({ erro: 'Usuário não autenticado' });
@@ -82,7 +83,7 @@ exports.atualizarTarefa = async (req, res) => {
   }
 };
 
-//Excluindo alguma tarefa existente.
+// Exclui tarefa, validando usuário
 exports.excluirTarefa = async (req, res) => {
   try {
     if (!req.session.usuario_id) return res.status(401).json({ erro: 'Usuário não autenticado' });
@@ -94,8 +95,8 @@ exports.excluirTarefa = async (req, res) => {
       return res.status(403).json({ erro: 'Acesso negado' });
     }
 
-    const deletada = await Tarefa.excluirTarefa(req.params.tarefa_id);
-    console.log('Tarefa excluída com sucesso:', deletada);
+    await Tarefa.excluirTarefa(req.params.tarefa_id);
+    console.log('Tarefa excluída com sucesso');
     res.json({ mensagem: 'Tarefa excluída com sucesso' });
   } catch (erro) {
     console.error('Erro ao excluir tarefa:', erro);

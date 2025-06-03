@@ -1,0 +1,97 @@
+body {
+  font-family: var(--font);
+  background-color: var(--gray);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--main-blue);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.filtros {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filtros select,
+.filtros input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--inputs-color);
+  background-color: var(--white);
+  font-family: var(--font);
+  min-width: 180px;
+}
+
+.lista-tarefas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-tarefa {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-tarefa h2 {
+  font-size: 1.2rem;
+  color: var(--black);
+}
+
+.card-tarefa p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  color: #444;
+}
+
+.card-tarefa .status {
+  font-weight: bold;
+  color: var(--secondary-blue);
+}
+
+.card-tarefa .prioridade {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #777;
+}
+
+.card-tarefa .acoes {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-tarefa .acoes button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+.card-tarefa .editar {
+  background-color: var(--main-blue);
+  color: var(--white);
+}
+
+.card-tarefa .apagar {
+  background-color: #e74c3c;
+  color: var(--white);
+}
