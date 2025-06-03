@@ -91,7 +91,7 @@
   box-sizing: border-box;
 }
 
-/* RESPONSIVIDADE*/
+/*RESPONSIVIDADE*/
 @media screen and (max-width: 900px) {
   .home__body__dashboard__cartoes {
     flex-direction: column;

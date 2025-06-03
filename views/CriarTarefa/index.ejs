@@ -2,30 +2,35 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Task: criar tarefa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task: Criar Tarefa</title>
+
   <link rel="stylesheet" href="/styles/style.css" />
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/criarTarefa.css" />
+
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
   <%- include('../components/header') %>
+
   <main class="form-container">
     <h1>Criar nova tarefa</h1>
-    <form id="form-criar-tarefa">
+    
+    <form id="form-criar-tarefa" novalidate>
       <label for="titulo">Título:</label>
-      <input type="text" id="titulo" name="titulo" required />
+      <input type="text" id="titulo" name="titulo" placeholder="Digite o título da tarefa" required />
 
       <label for="descricao">Descrição:</label>
-      <textarea id="descricao" name="descricao" rows="4" required></textarea>
+      <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva a tarefa..." required></textarea>
 
       <label for="deadline">Prazo (deadline):</label>
       <input type="date" id="deadline" name="deadline" required />
 
       <label for="progresso">Status:</label>
       <select id="progresso" name="progresso" required>
-        <option value="">--Selecione--</option>
+        <option value="" disabled selected>-- Selecione --</option>
         <option value="pendente">Pendente</option>
         <option value="em andamento">Em andamento</option>
         <option value="concluída">Concluída</option>
@@ -33,7 +38,7 @@
 
       <label for="prioridade">Prioridade:</label>
       <select id="prioridade" name="prioridade" required>
-        <option value="">--Selecione--</option>
+        <option value="" disabled selected>-- Selecione --</option>
         <option value="baixa">Baixa</option>
         <option value="media">Média</option>
         <option value="alta">Alta</option>
@@ -41,11 +46,13 @@
 
       <button type="submit">Criar Tarefa</button>
     </form>
+
+    <div id="mensagem"></div>
   </main>
+
   <%- include('../components/footer') %>
-  
+
   <script src="/scripts/abrirMenuHamburguer.js"></script>
   <script src="/scripts/criarTarefa.js"></script>
-
 </body>
 </html>

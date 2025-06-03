@@ -119,6 +119,7 @@ body.swal2-shown {
   font-weight: bold;
   font-size: 0.8rem;
   margin: 1.5rem 0 0 0;
+  text-align: center;
 }
 
 .go__to__sign__up:hover {
@@ -127,27 +128,24 @@ body.swal2-shown {
 
 /*RESPONSIVIDADE*/
 @media (max-width: 900px) {
-  @media (max-width: 900px) {
   .login__and__sign__up__main__container {
     flex-direction: column;
-    width: auto;  
+    width: auto;
     height: auto;
-    background-color: transparent; 
-    border-radius: 0; 
-    justify-content: center; 
-    align-items: center; 
+    background-color: transparent;
+    border-radius: 0;
+    justify-content: center;
+    align-items: center;
     padding: 0 1rem;
   }
 
   .login__and__sign__up__main__container__left {
-    width: 320px; 
+    width: 320px;
     height: auto;
     border-radius: 20px;
     padding: 2rem 1.5rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15); 
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   }
-}
-
 
   .login__and__sign__up__main__container__left__title {
     font-size: 2.5rem;
@@ -163,10 +161,18 @@ body.swal2-shown {
   .login__sign__up__button {
     width: 90%;
   }
+
+   .password-wrapper {
+    width: 90%;
+  }
+
+  .login__and__sign__up__main__container {
+    padding: 4rem 3rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .login__and_sign__up__body {
+  .login__and__sign__up__body {
     background-attachment: scroll;
   }
 
@@ -180,4 +186,9 @@ body.swal2-shown {
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
+
+  .login__and__sign__up__main__container {
+    padding: 3rem 2rem;
+  }
 }
+

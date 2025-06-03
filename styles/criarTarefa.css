@@ -1,10 +1,11 @@
 .form-container {
   max-width: 680px;
+  width: 100%;
   margin: 3rem auto;
   padding: 2rem;
   background: var(--white);
   border-radius: 8px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   font-family: var(--font), sans-serif;
   color: var(--black);
   box-sizing: border-box;
@@ -39,13 +40,11 @@
   font-size: 1rem;
   font-family: var(--font), sans-serif;
   color: var(--black);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
 }
 
-.form-container input[type="text"]:focus,
-.form-container input[type="date"]:focus,
-.form-container input[type="number"]:focus,
+.form-container input:focus,
 .form-container textarea:focus,
 .form-container select:focus {
   border-color: var(--main-blue);
@@ -53,7 +52,6 @@
   box-shadow: 0 0 6px var(--main-blue);
   background-color: #f9faff;
 }
-
 
 .form-container textarea {
   resize: vertical;
@@ -99,6 +97,7 @@
   padding: 0.5rem 1rem;
   position: sticky;
   top: 0;
+  width: 100%;
   z-index: 999;
   font-family: var(--font), sans-serif;
 }
@@ -133,21 +132,18 @@
 }
 
 /*RESPONSIVIDADE*/
-
 @media (max-width: 720px) {
   .form-container {
-    margin: 2rem 1rem;
+    width: 95%;
+    margin: 2rem auto;
     padding: 1.5rem;
-    max-width: 100%;
   }
 
   .form-container h1 {
     font-size: 1.75rem;
   }
 
-  .form-container input[type="text"],
-  .form-container input[type="date"],
-  .form-container input[type="number"],
+  .form-container input,
   .form-container textarea,
   .form-container select {
     font-size: 0.95rem;
@@ -162,7 +158,8 @@
 
 @media (max-width: 480px) {
   .form-container {
-    margin: 1.5rem 1rem;
+    width: 100%;
+    margin: 1.5rem auto;
     padding: 1rem;
   }
 
@@ -170,9 +167,7 @@
     font-size: 1.5rem;
   }
 
-  .form-container input[type="text"],
-  .form-container input[type="date"],
-  .form-container input[type="number"],
+  .form-container input,
   .form-container textarea,
   .form-container select {
     font-size: 0.9rem;
@@ -180,7 +175,7 @@
   }
 
   .form-container button[type="submit"] {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     padding: 0.55rem;
   }
 }
