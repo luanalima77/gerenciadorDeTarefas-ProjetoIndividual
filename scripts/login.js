@@ -1,5 +1,8 @@
+//Chamando o form de login.
 const form = document.getElementById('login__form');
 
+
+//Adicionando o evento de submit ao formulário de login.
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
 

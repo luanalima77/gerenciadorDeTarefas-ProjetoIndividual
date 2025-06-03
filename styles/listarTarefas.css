@@ -1,97 +1,262 @@
 body {
   font-family: var(--font);
   background-color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
 
 .container {
   max-width: 960px;
   margin: 0 auto;
+  padding: 2rem;
+  flex: 1;
 }
 
 h1 {
   font-size: 2rem;
   color: var(--main-blue);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 .filtros {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
   flex-wrap: wrap;
+  gap: 1rem 1.5rem;
   justify-content: center;
+  margin-bottom: 2.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.filtros select,
-.filtros input {
-  padding: 0.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--inputs-color);
-  background-color: var(--white);
+.filtros input[type="text"],
+.filtros input[type="date"],
+.filtros select {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1.5px solid var(--inputs-color);
+  background-color: var(--inputs-color);
   font-family: var(--font);
+  font-size: 1rem;
+  color: var(--inputs-text-color);
   min-width: 180px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  flex: 1 1 180px;
+  max-width: 250px;
 }
+
+.filtros input[type="text"]:focus,
+.filtros input[type="date"]:focus,
+.filtros select:focus {
+  outline: none;
+  border-color: var(--main-blue);
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.filtros button#btn-aplicar-filtros {
+  background-color: var(--main-blue);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 14px;
+  font-family: var(--font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 0 0 auto;
+  align-self: center;
+  box-shadow: 0 4px 10px rgba(0, 56, 176, 0.4);
+}
+
+.filtros button#btn-aplicar-filtros:hover {
+  background-color: var(--secondary-blue);
+}
+
 
 .lista-tarefas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .card-tarefa {
   background-color: var(--white);
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: var(--shadow);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.card-tarefa h2 {
-  font-size: 1.2rem;
+  font-family: var(--font);
   color: var(--black);
 }
 
+.card-tarefa h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
 .card-tarefa p {
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
+  font-size: 1rem;
+  margin: 0.4rem 0;
   color: #444;
 }
 
 .card-tarefa .status {
-  font-weight: bold;
+  font-weight: 600;
   color: var(--secondary-blue);
+  text-transform: capitalize;
 }
 
 .card-tarefa .prioridade {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-style: italic;
   color: #777;
 }
 
 .card-tarefa .acoes {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
-  justify-content: space-between;
+  gap: 1rem;
+  justify-content: flex-end;
 }
 
 .card-tarefa .acoes button {
-  padding: 0.4rem 0.8rem;
+  padding: 0.6rem 1rem;
   border: none;
   border-radius: 8px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+  color: var(--white);
+}
+
+.card-tarefa .btn-editar {
+  background-color: var(--main-blue);
+}
+
+.card-tarefa .btn-editar:hover {
+  background-color: #002c8f;
+}
+
+.card-tarefa .btn-excluir {
+  background-color: #e74c3c;
+}
+
+.card-tarefa .btn-excluir:hover {
+  background-color: #c0392b;
+}
+
+
+.modal.hidden {
+  display: none !important;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  font-family: var(--font);
+  padding: 1rem; 
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 30px 40px;
+  width: 450px; 
+  max-width: 90vw;
+  max-height: 80vh; 
+  overflow-y: auto; 
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  color: var(--black);
   font-family: var(--font);
 }
 
-.card-tarefa .editar {
-  background-color: var(--main-blue);
-  color: var(--white);
+.fechar-modal {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
 }
 
-.card-tarefa .apagar {
-  background-color: #e74c3c;
+.fechar-modal:hover {
+  color: var(--main-blue);
+}
+
+.modal-content label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  margin-top: 1rem;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid var(--inputs-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--inputs-text-color);
+  transition: border-color 0.3s ease;
+  font-family: var(--font);
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  outline: none;
+  border-color: var(--main-blue);
+  color: var(--black);
+}
+
+.modal-content textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+
+#btn-salvar-edicao {
+  margin-top: 2.5rem;
+  background-color: var(--main-blue);
   color: var(--white);
+  border: none;
+  padding: 0.85rem 0;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btn-salvar-edicao:hover {
+  background-color: var(--secondary-blue);
 }

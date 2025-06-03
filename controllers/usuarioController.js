@@ -74,7 +74,12 @@ exports.mostrarHome = async (req, res) => {
 
     const tarefas = await Tarefa.encontrarTarefasDoUsuario(req.session.usuario_id);
     const total = tarefas.length;
-    const concluidas = tarefas.filter(t => t.status === 'concluída').length;
+
+    const removerAcentos = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const concluidas = tarefas.filter(t => {
+      const progresso = removerAcentos(t.progresso.toLowerCase());
+      return progresso.includes('concluida');
+    }).length;
     const aFazer = total - concluidas;
 
     res.render('Home/index', {

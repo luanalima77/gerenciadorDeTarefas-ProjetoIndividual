@@ -1,68 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Task: home</title>
-  <link rel="stylesheet" href="/styles/style.css">
-  <link rel="stylesheet" href="/styles/home.css">
-  <link rel="stylesheet" href="/styles/header.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Task: home</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/home.css">
+    <script src="https://unpkg.com/@antv/g2plot/dist/g2plot.min.js"></script>
+  </head>
 
-<body>
-  <!-- Conteúdo principal da home-->
-  <main class="home__body">
-    <%- include('../components/header') %>
-    <section class="home__body__dashboard">
-        <div class = "home__body__dashboard__titulo__container">
-          <h1 class="home__body__dashboard__titulo">Bem-vindo(a), <%= nomeUsuario %></h1>
-          <h2 class="home__body__dashboard__subtitulo">Dashboard</h2>
-        </div>
-        
+  <body>
+      <!-- Conteúdo principal da home-->
+      <main class="home__body">
+        <%- include('../components/header') %>
+        <section class="home__body__dashboard">
+            <div class = "home__body__dashboard__titulo__container">
+              <h1 class="home__body__dashboard__titulo">Bem-vindo(a), <%= nomeUsuario %></h1>
+              <h2 class="home__body__dashboard__subtitulo">Dashboard</h2>
+            </div>
+            
 
-        <div class="home__body__dashboard__cartoes">
-      <div class="home__body__dashboard__cartao cartao__azul">
-        <h3 class="home__body__dashboard__cartao__titulo">Tarefas a fazer</h3>
-        <h2 class="home__body__dashboard__cartao__numero"><%= tarefasAFazer %></h2>
-      </div>
+          <div class="home__body__dashboard__cartoes">
+          <div class="home__body__dashboard__cartao cartao__azul">
+            <h3 class="home__body__dashboard__cartao__titulo">Tarefas a fazer</h3>
+            <h2 class="home__body__dashboard__cartao__numero"><%= tarefasAFazer %></h2>
+          </div>
 
-      <div class="home__body__dashboard__cartao" >
-        <h3 class="home__body__dashboard__cartao__titulo">Tarefas concluídas</h3>
-        <h2 class="home__body__dashboard__cartao__numero"><%= tarefasConcluidas %></h2>
-      </div>
+          <div class="home__body__dashboard__cartao" >
+            <h3 class="home__body__dashboard__cartao__titulo">Tarefas concluídas</h3>
+            <h2 class="home__body__dashboard__cartao__numero"><%= tarefasConcluidas %></h2>
+          </div>
 
-      <div class="home__body__dashboard__cartao">
-        <h3 class="home__body__dashboard__cartao__titulo">Próximas do vencimento</h3>
-        <h2 class="home__body__dashboard__cartao__numero"><%= totalTarefas %></h2>
-      </div>
-
-      <div class="home__body__dashboard__cartao">
-        <h3 class="home__body__dashboard__cartao__titulo">Total de tarefas</h3>
-        <h2 class="home__body__dashboard__cartao__numero"><%= totalTarefas %></h2>
-      </div>
-    </div>
-
-        
-        <div class = "home__body__dashboard__titulo__container">
-          <h2 class="home__body__dashboard__subtitulo">Gráficos</h2>
+          <div class="home__body__dashboard__cartao">
+            <h3 class="home__body__dashboard__cartao__titulo">Total de tarefas</h3>
+            <h2 class="home__body__dashboard__cartao__numero"><%= totalTarefas %></h2>
+          </div>
         </div>
 
-        <div class = "graficos">
-          <canvas id="grafico1"></canvas>
-          <canvas id="grafico2"></canvas>
-        </div>
-        
+            
+            <div class = "home__body__dashboard__titulo__container">
+              <h2 class="home__body__dashboard__subtitulo">Gráficos</h2>
+            </div>
 
-    </section>
-  </main>
+            <div class="graficos">
+              <div id="grafico1" class="grafico"></div>
+              <div id="grafico2" class="grafico"></div>
+            </div>
+        </section>
+      </main>
 
-  <!-- Biblioteca ScrollReveal para animações -->
-  <script src="https://unpkg.com/scrollreveal"></script>
+      
 
-  <!--Biblioteca para gráficos-->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!--JavaScript externo-->
-  <script src="/scripts/abrirMenuHamburguer.js"></script>
-  <script src="/scripts/graficos.js"></script>
-</body>
+      <!-- Biblioteca ScrollReveal para animações -->
+      <script src="https://unpkg.com/scrollreveal"></script>
+      <script src="/scripts/animacoes.js"></script>
+
+      <!--Biblioteca para gráficos-->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      <!--JavaScript externo-->
+      <script src="/scripts/abrirMenuHamburguer.js"></script>
+
+      <script>
+          // Gráfico de Tarefas (Pizza)
+          const piePlot = new G2Plot.Pie('grafico1', {
+            data: [
+              { tipo: 'A Fazer', valor: <%= tarefasAFazer %> },
+              { tipo: 'Concluídas', valor: <%= tarefasConcluidas %> },
+            ],
+            angleField: 'valor',
+            colorField: 'tipo',
+            radius: 1,
+            label: {
+              type: 'outer',
+              content: '{name} ({percentage})',
+            },
+            legend: {
+              position: 'bottom'
+            },
+            responsive: true,
+          });
+          piePlot.render();
+
+          // Gráfico de Totais (Barra)
+          const barPlot = new G2Plot.Column('grafico2', {
+            data: [
+              { tipo: 'Total de Tarefas', valor: <%= totalTarefas %> }
+            ],
+            xField: 'tipo',
+            yField: 'valor',
+            columnStyle: {
+              radius: [8, 8, 0, 0],
+            },
+            label: {
+              position: 'middle',
+              style: {
+                fill: '#fff',
+                fontSize: 14,
+                fontWeight: 600
+              }
+            },
+            color: '#FFCE56',
+            responsive: true,
+          });
+          barPlot.render();
+    </script>
+
+    <%- include('../components/footer') %>
+  </body>
 </html>

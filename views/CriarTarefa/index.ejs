@@ -6,12 +6,11 @@
   <link rel="stylesheet" href="/styles/style.css" />
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/criarTarefa.css" />
-   <!--SweetAlert2: esse plugin mostra mensagens de feedback de modo mais bonitinho-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-   <%- include('../components/header') %>
+  <%- include('../components/header') %>
   <main class="form-container">
     <h1>Criar nova tarefa</h1>
     <form id="form-criar-tarefa">
@@ -24,8 +23,13 @@
       <label for="deadline">Prazo (deadline):</label>
       <input type="date" id="deadline" name="deadline" required />
 
-      <label for="progresso">Progresso (%):</label>
-      <input type="number" id="progresso" name="progresso" min="0" max="100" value="0" required />
+      <label for="progresso">Status:</label>
+      <select id="progresso" name="progresso" required>
+        <option value="">--Selecione--</option>
+        <option value="pendente">Pendente</option>
+        <option value="em andamento">Em andamento</option>
+        <option value="concluída">Concluída</option>
+      </select>
 
       <label for="prioridade">Prioridade:</label>
       <select id="prioridade" name="prioridade" required>
@@ -38,9 +42,10 @@
       <button type="submit">Criar Tarefa</button>
     </form>
   </main>
-
-   <script src="/scripts/abrirMenuHamburguer.js"></script>
-   <script src="/scripts/criarTarefa.js"></script>
+  <%- include('../components/footer') %>
+  
+  <script src="/scripts/abrirMenuHamburguer.js"></script>
+  <script src="/scripts/criarTarefa.js"></script>
 
 </body>
 </html>
