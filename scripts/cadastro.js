@@ -1,6 +1,21 @@
 //Chamando o form de cadastro.
 const form = document.getElementById("sign__up__form");
 
+//Alternando a visibilidade do olhinho.
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("password");
+
+togglePassword.addEventListener("click", () => {
+  const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+  passwordInput.setAttribute("type", type);
+
+  //Alternando os ícones de olhinho.
+  togglePassword.classList.toggle("fa-eye");
+  togglePassword.classList.toggle("fa-eye-slash");
+});
+
+
+
 //Adicionando evento de submit no formulário de cadastro.
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -8,6 +23,17 @@ form.addEventListener("submit", async (event) => {
     const nome_usuario = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const senha = document.getElementById("password").value;
+
+    //Verificando se o email que o usuário inseriu é válido.
+     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        Swal.fire({
+          icon: "warning",
+          title: "Email inválido",
+          text: "Por favor, insira um email válido.",
+        });
+        return;
+      }
 
     //Verificando a força da senha.
     const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/;

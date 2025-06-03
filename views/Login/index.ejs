@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Task: login</title>
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
   <body class="login__and_sign__up__body">
@@ -17,7 +18,16 @@
           <input type="text" placeholder="Digite seu email aqui" class="inputs" id="email" name="email" required>
 
           <label for="password" class="labels">Senha</label>
-          <input type="password" placeholder="Digite sua senha aqui" class="inputs" id="password" name="senha" required>
+          <div class="password-wrapper">
+            <input
+              type="password"
+              placeholder="Digite sua senha aqui"
+              class="inputs"
+              id="password"
+              required
+            >
+            <i class="fa-solid fa-eye" id="togglePassword"></i>
+          </div>
 
           <button type="submit" class="login__sign__up__button">Entrar</button>
 

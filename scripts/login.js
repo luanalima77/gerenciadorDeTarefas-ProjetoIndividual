@@ -1,6 +1,20 @@
 //Chamando o form de login.
 const form = document.getElementById('login__form');
 
+//Alternando a visibilidade do olhinho.
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("password");
+
+togglePassword.addEventListener("click", () => {
+  const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+  passwordInput.setAttribute("type", type);
+
+  //Alternando os ícones de olhinho.
+  togglePassword.classList.toggle("fa-eye");
+  togglePassword.classList.toggle("fa-eye-slash");
+});
+
+
 
 //Adicionando o evento de submit ao formulário de login.
 form.addEventListener('submit', async (event) => {
