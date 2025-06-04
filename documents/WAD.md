@@ -631,7 +631,7 @@ node server.js
 
 &nbsp; &nbsp; &nbsp; &nbsp;Com base nisso, foram desenvolvidas 6 views: Landing page, login, cadastro, home, minhas tarefas e criar tarefa. Ademais, o footer e o header da aplicação foram separados na pasta components, uma vez que estão padronizados para as views.
 
-&nbsp; &nbsp; &nbsp; &nbsp;A figura 33 mostra a view de landing page.
+&nbsp; &nbsp; &nbsp; &nbsp;A figura 33 mostra a view de landing page, que possui os botões de login, cadastro e inscreva-se grátis (que direciona para o cadastro também).
 <p align = "center"> Figura 33 - View de Landing Page</p>
 <div align = "center">
 <img src = "../assets/landingPageView.png">
@@ -639,6 +639,7 @@ node server.js
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 <br>
 
+&nbsp; &nbsp; &nbsp; &nbsp;A figura 34 mostra a view de cadastro quando o usuário a acessa. A figura 35 mostra a verificação se o e-mail possui @ em sua estrutura (com base na estrutura padrão de e-mail, já que o input é do tipo e-mail). A figura 36 mostra o popup que aparece quando o usuário tenta cadastrar uma senha sem 8 caracteres, 1 letra maiúscula e um caractere especial. ,A figura 37 mostra o popup que aparece ao usuário quando ele tenta cadastrar um e-mail que já está cadastrado. Vale mencionar que quando o usuário faz o cadastro com sucesso, ele é direcionado à view de login para entrar no site. 
 <p align = "center"> Figura 34 - View de cadastro</p>
 <div align = "center">
 <img src = "../assets/cadastroView.png">
@@ -665,7 +666,9 @@ node server.js
 <img src = "../assets/cadastroViewEmailJaCadastrado.png">
 </div>
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
-<br> 
+<br> <br>
+
+&nbsp; &nbsp; &nbsp; &nbsp;A figura 38 mostra a view de login quando o usuário a acessa. Já a figura 39 mostra o popup que é apresentado ao usuário quando ele erra seu e-mail ou sua senha. Já a figura 40 mostra o popup que aparece ao usuário quando ele faz o login com sucesso.
 
 <p align = "center"> Figura 38 - View de login</p>
 <div align = "center">
@@ -675,7 +678,7 @@ node server.js
 <br>
 
 
-<p align = "center"> Figura 39 - View de login - email ou senha incorretos</p>
+<p align = "center"> Figura 39 - View de login - e-mail ou senha incorretos</p>
 <div align = "center">
 <img src = "../assets/loginViewEmailSenhaIncorretos.png">
 </div>
@@ -689,6 +692,8 @@ node server.js
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 <br>
 
+
+&nbsp; &nbsp; &nbsp; &nbsp;As figuras 41 e 42 mostra a tela de home, que é aberta após o login do usuário. Nela, são mostradas quantas tarefas o usuário têm no total, quantas estão concluídas e quantas estão pendentes. Além disso, especificamente a figura 42 apresenta a seção de gráficos que é apresentada ao usuário.
 <p align = "center"> Figura 41 - View de home - parte 1</p>
 <div align = "center">
 <img src = "../assets/homeViewParte1.png">
@@ -703,6 +708,7 @@ node server.js
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 <br>
 
+&nbsp; &nbsp; &nbsp; &nbsp;A figura 43 mostra a sidebar que é aberta quando o usuário clica no menu hambúrguer no canto superior esquerdo da tela, com todas as opções de funcionalidades da aplicação web. Essa sidebar é padrão para todas as páginas do site.
 <p align = "center"> Figura 43 - Abrindo a sidebar</p>
 <div align = "center">
 <img src = "../assets/sidebar.png">
@@ -710,6 +716,7 @@ node server.js
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 <br>
 
+&nbsp; &nbsp; &nbsp; &nbsp;As figuras 44, 45 e 46 mostram a view de criar tarefas. A figura 45 mostra o popup que aparece quando o usuário tenta criar uma tarefa vazia (aparece um erro). Já a figura 46 mostra o popup que é apresentado ao usuário quando ele cria uma tarefa com sucesso.
 <p align = "center"> Figura 44 - View de criar tarefa</p>
 <div align = "center">
 <img src = "../assets/criarTarefaView.png">
@@ -729,9 +736,9 @@ node server.js
 <img src = "../assets/criarTarefaViewSucesso.png">
 </div>
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
-<br>
+<br> <br>
 
-
+&nbsp; &nbsp; &nbsp; &nbsp;Das figuras 47 a 51 é mostrada a view de minhas tarefas. Na parte superior da página, há uma área de filtros que permite ao usuário buscar tarefas com base em critérios como título, prioridade, status e data. Abaixo dessa parte de filtros ficam os cards, que resumem uma tarefa específica, contendo informações como título, descrição, status, prioridade e prazo. Além disso, esses cartões também oferecem botões de ação para editar ou excluir a tarefa. Especificamente, a figura 48 mostra o processo de edição de tarefas (por meio de um popup) e a figura 50 apresenta um popup que pergunta ao usuário se ele, de fato, quer excluir uma tarefa. Já as figuras 49 e 51 mostram os popups que são mostrados quando uma tarefa é editada com sucesso e quando uma tarefa é excluída com sucesso, respectivamente.
 <p align = "center"> Figura 47 - View de minhas tarefas</p>
 <div align = "center">
 <img src = "../assets/minhasTarefasView.png">
@@ -764,6 +771,38 @@ node server.js
 <p align = "center"> Figura 51 - View de minhas tarefas - tarefa excluída com sucesso</p>
 <div align = "center">
 <img src = "../assets/minhasTarefasExcluirTarefaSucesso.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br> <br>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp;As figuras 52 e 53 mostram o processo de logout do usuário. Primeiro, aparece um popup perguntando se o usuário quer, de fato, se deslogar. Caso ele confirme, aparece um popup de sucesso no logout. Detalhe: após o logout, o usuário é direcionado à landing page.
+<p align = "center"> Figura 52 - Popup que aparece quando "logout" (que está na sidebar) é clicado.</p>
+<div align = "center">
+<img src = "../assets/logout.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 53 - Logout realizado com sucesso</p>
+<div align = "center">
+<img src = "../assets/logoutSucesso.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br><br>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp;As figuras 54 e 55 mostram o processo de exclusão de conta do usuário. Primeiro, aparece um popup perguntando se o usuário quer, de fato, excluir a conta. Caso ele confirme, aparece um popup de sucesso na exclusão. Após excluir sua conta, o usuário é direcionado à landing page.
+<p align = "center"> Figura 54 - Popup que aparece quando "Apagar conta" (que está na sidebar) é clicado</p>
+<div align = "center">
+<img src = "../assets/apagarConta.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 55 - Popup de conta excluída com sucesso</p>
+<div align = "center">
+<img src = "../assets/apagarContaSucesso.png">
 </div>
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 <br>
