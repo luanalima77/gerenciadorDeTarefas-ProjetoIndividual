@@ -768,6 +768,50 @@ node server.js
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 <br>
 
+
+## 6.1 Mudanças relevantes no backend e banco de dados
+&nbsp; &nbsp; &nbsp; &nbsp;De modo geral, não houve mudanças significativas no backend e no banco de dados em relação ao que foi mostrado nas seções anteriores. Apenas houve a adição da opção de exclusão de conta do usuário no controllers/usuarioController.js e também a exclusão de tarefas relacionadas a esse usuário excluído no banco de dados, sendo que esta última alteração mencionada foi realizada no models/tarefa.js. Tais mudanças estão explicitadas logo abaixo:
+
+```javascript
+//***ARQUIVO models/tarefa.js***
+async excluirPorUsuario(usuarioId) {
+    const query = "DELETE FROM TAREFA WHERE usuario_id = $1";
+    await pool.query(query, [usuarioId]);
+  },
+```
+
+```javascript
+//***ARQUIVO controllers/usuarioController.js***
+
+//Exclusão de conta.
+exports.excluirConta = async (req, res) => {
+  const usuarioId = req.session.usuario_id;
+
+  if (!usuarioId) {
+    return res.status(401).json({ error: "Usuário não autenticado" });
+  }
+
+  try {
+    //Excluindo tarefas relacionadas ao usuário.
+    await Tarefa.excluirPorUsuario(usuarioId);
+
+    //Excluindo usuário.
+    await Usuario.excluirPorId(usuarioId);
+
+    //Encerrando sessão após a exclusão de conta.
+    req.session.destroy(err => {
+      if (err) {
+        console.error("Erro ao destruir sessão após exclusão:", err);
+      }
+    });
+
+    res.status(200).json({ mensagem: "Conta excluída com sucesso." });
+  } catch (err) {
+    console.error("Erro ao excluir conta:", err);
+    res.status(500).json({ error: "Erro ao excluir conta" });
+  }
+};
+```
 # REFERÊNCIAS BIBLIOGRÁFICAS
 
 BECKER, Sophie. What is Supabase?. [S. l.], 14 dez. 2023. Disponível em: https://blog.boldtech.dev/what-is-supabase-vs-firebase/#supabase-who-are-they. Acesso em: 20 maio 2025.
