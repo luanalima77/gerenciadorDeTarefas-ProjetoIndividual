@@ -626,6 +626,148 @@ node server.js
 <br>
 
 
+# 6. PARTE 3 DO PROJETO: PARTE VISUAL, VIEWS E CSS
+&nbsp; &nbsp; &nbsp; &nbsp;Na terceira parte deste projeto, o foco foi desenvolver a parte visual da aplicação, ou seja, as views, juntamente com sua estilização, a qual foi aplicada com o CSS, largamente usado em desenvolvimento de páginas web para aplicar estilos e responsividade.
+
+&nbsp; &nbsp; &nbsp; &nbsp;Com base nisso, foram desenvolvidas 6 views: Landing page, login, cadastro, home, minhas tarefas e criar tarefa. Ademais, o footer e o header da aplicação foram separados na pasta components, uma vez que estão padronizados para as views.
+
+&nbsp; &nbsp; &nbsp; &nbsp;A figura 33 mostra a view de landing page.
+<p align = "center"> Figura 33 - View de Landing Page</p>
+<div align = "center">
+<img src = "../assets/landingPageView.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 34 - View de cadastro</p>
+<div align = "center">
+<img src = "../assets/cadastroView.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 35 - View de cadastro - testar email sem @</p>
+<div align = "center">
+<img src = "../assets/cadastroViewValidacaoEmail.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 36 - View de cadastro - testar senha sem 8 caracteres, 1 letra maiúscula e um caractere especial </p>
+<div align = "center">
+<img src = "../assets/cadastroViewSenhaInvalida.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 37 - View de cadastro - testar cadastro com um email já cadastrado </p>
+<div align = "center">
+<img src = "../assets/cadastroViewEmailJaCadastrado.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br> 
+
+<p align = "center"> Figura 38 - View de login</p>
+<div align = "center">
+<img src = "../assets/loginView.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+
+<p align = "center"> Figura 39 - View de login - email ou senha incorretos</p>
+<div align = "center">
+<img src = "../assets/loginViewEmailSenhaIncorretos.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 40 - View de login - sucesso no login</p>
+<div align = "center">
+<img src = "../assets/loginViewSucesso.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 41 - View de home - parte 1</p>
+<div align = "center">
+<img src = "../assets/homeViewParte1.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 42 - View de home - parte 2</p>
+<div align = "center">
+<img src = "../assets/homeViewParte2.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 43 - Abrindo a sidebar</p>
+<div align = "center">
+<img src = "../assets/sidebar.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 44 - View de criar tarefa</p>
+<div align = "center">
+<img src = "../assets/criarTarefaView.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 45 - View de criar tarefa - testando enviar tarefa vazia</p>
+<div align = "center">
+<img src = "../assets/criarTarefaViewEnviarVazia.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 46 - View de criar tarefa - criando tarefa com sucesso</p>
+<div align = "center">
+<img src = "../assets/criarTarefaViewSucesso.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+
+<p align = "center"> Figura 47 - View de minhas tarefas</p>
+<div align = "center">
+<img src = "../assets/minhasTarefasView.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+
+<p align = "center"> Figura 48 - View de minhas tarefas - Abrindo o popup para editar tarefas</p>
+<div align = "center">
+<img src = "../assets/minhasTarefasViewPopupEditar.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 49 - View de minhas tarefas - Atualizando tarefa com sucesso</p>
+<div align = "center">
+<img src = "../assets/minhasTarefasViewAtualizacaoSucesso.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 50 - View de minhas tarefas - Popup de confirmação para excluir tarefas</p>
+<div align = "center">
+<img src = "../assets/minhasTarefasExcluirTarefa.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
+<p align = "center"> Figura 51 - View de minhas tarefas - tarefa excluída com sucesso</p>
+<div align = "center">
+<img src = "../assets/minhasTarefasExcluirTarefaSucesso.png">
+</div>
+<p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br>
+
 # REFERÊNCIAS BIBLIOGRÁFICAS
 
 BECKER, Sophie. What is Supabase?. [S. l.], 14 dez. 2023. Disponível em: https://blog.boldtech.dev/what-is-supabase-vs-firebase/#supabase-who-are-they. Acesso em: 20 maio 2025.
