@@ -61,6 +61,6 @@ form.addEventListener('submit', async (event) => {
             title: 'Erro',
             text: 'Erro na comunicação com o servidor'
         });
-        console.error(error);
+            console.error(error);
         }
 });

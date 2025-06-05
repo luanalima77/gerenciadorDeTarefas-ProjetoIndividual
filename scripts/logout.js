@@ -12,7 +12,7 @@ document.getElementById('btn-logout').addEventListener('click', function(event) 
   }).then(async (result) => {
     if (result.isConfirmed) {
       try {
-        //Fazendo o logout via GET.
+        //Usando fetch API para realizar logout.
         const response = await fetch('/logout', { method: 'GET' });
         
         if (response.ok) {
