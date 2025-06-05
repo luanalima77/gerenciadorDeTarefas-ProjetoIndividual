@@ -7,38 +7,6 @@
 gerenciadorDeTarefas-ProjetoIndividual/
 │
 ├── assets/                     # Arquivos públicos como imagens e fontes
-|   └── bodyRaw.png
-|   └── cadastroBancoDeDados.png
-|   └── cadastroSupabase.png
-|   └── connect.png
-|   └── criarProjetoSupabase.png
-|   └── dadosConexao.png
-|   └── Diagrama MVC.png
-|   └── downloadPostman.png
-|   └── homeSupabase.png
-|   └── httpPostman.png
-|   └── interfaceSupabase.png
-|   └── modelo-conceitual-banco.png 
-|   └── modelo-logico-banco.png  
-|   └── modelo-fisico-banco.png
-|   └── newPostman.png
-|   └── organizacaoSupabase.png
-|   └── requisicaoAtualizarTarefa.png
-|   └── requisicaoCadastro.png
-|   └── requisicaoCriarTarefa.png
-|   └── requisicaoListarTarefas.png
-|   └── requisicaoLogin.png
-|   └── requisicaoLogout.png
-|   └── requisicoesPostman.png
-|   └── respostaAtualizarTarefa.png
-|   └── respostaCadastro.png
-|   └── respostaCriarTarefa.png
-|   └── respostaListarTarefas.png
-|   └── respostaLogin.png
-|   └── respostaLogout.png
-|   └── sessionPooler.png
-|   └── tarefaAtualizadaBancoDeDados.png  
-|   └── tarefaBancoDeDados.png      
 |       
 ├── config/                     # Arquivos de configuração (ex: conexão com banco)
 │   └── database.js
@@ -60,20 +28,40 @@ gerenciadorDeTarefas-ProjetoIndividual/
 │   └── index.js
 |
 ├── scripts                     # Arquivos de JavaScript públicos
+│   └── abrirMenuHamburguer.js
+│   └── animacoes.js
+│   └── cadastro.js
+│   └── criarTarefa.js
+│   └── excluirConta.js
+│   └── graficos.js
+│   └── init.sql
+│   └── listarTarefas.js
+│   └── login.js
+│   └── logout.js
+│   └── runSQLScript.js
 |
 ├── services/                   # Serviços auxiliares do sistema
 │   └── userService.js             
 |               
 ├── styles/                     # Arquivos CSS públicos
+│   └── criarTarefa.css
+│   └── footer.css
+│   └── header.css
+│   └── home.css
+│   └── landingPage.css
+│   └── listarTarefas.css
+│   └── loginAndSignUp.css
+│   └── style.css.css
 |
 ├── tests/                      # Arquivos de testes unitários
 │   └── example.test.js
 |
 ├── views/                      # Templates e componentes visuais da aplicação
-|   └── AtualizarTarefa/
-|       └── index.ejs
 |   └── Cadastro/
 |       └── index.ejs
+|   └── components/
+|       └── footer.ejs
+|       └── header.ejs
 |   └── CriarTarefa/
 |       └── index.ejs
 |   └── Home/
@@ -82,10 +70,14 @@ gerenciadorDeTarefas-ProjetoIndividual/
 |       └── index.ejs
 |   └── Login/
 |       └── index.ejs
+|   └── MinhasTarefas/
+|       └── index.ejs
 |
 ├── .gitignore                  # Arquivo para ignorar arquivos no Git
 |
 ├── .env                        # Arquivo para variáveis de ambiente (banco de dados)
+|
+├── .env.example  # Arquivo para o usuário renomear para .env e inserir suas variáveis de ambiente
 |
 ├── jest.config.js              # Arquivo de configuração do Jest
 |

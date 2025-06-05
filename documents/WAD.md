@@ -631,7 +631,7 @@ node server.js
 
 
 # 6. PARTE 3 DO PROJETO: PARTE VISUAL, VIEWS E CSS
-&nbsp; &nbsp; &nbsp; &nbsp;Na terceira parte deste projeto, o foco foi desenvolver a parte visual da aplicação, ou seja, as views, juntamente com sua estilização, a qual foi aplicada com o CSS, largamente usado em desenvolvimento de páginas web para aplicar estilos e responsividade.
+&nbsp; &nbsp; &nbsp; &nbsp;Na terceira parte deste projeto, o foco foi desenvolver a parte visual da aplicação, ou seja, as views, juntamente com sua estilização, a qual foi aplicada com o CSS, largamente usado em desenvolvimento de páginas web para aplicar estilos. Além disso, buscou-se aplicar responsividade ao site e algumas animações (scripts/animacoes.js, que usa a biblioteca ScrollReveal).
 
 &nbsp; &nbsp; &nbsp; &nbsp;Com base nisso, foram desenvolvidas 6 views: Landing page, login, cadastro, home, minhas tarefas e criar tarefa. Ademais, o footer e o header da aplicação foram separados na pasta components, uma vez que estão padronizados para as views.
 
