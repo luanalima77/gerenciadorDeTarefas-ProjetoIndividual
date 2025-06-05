@@ -161,11 +161,13 @@ CREATE TABLE TAREFA (
 
 &nbsp; &nbsp; &nbsp; &nbsp;- Cadastro: possui campos de nome, email e senha. Envia os dados para usuarioController.cadastrarUsuario;
 
-&nbsp; &nbsp; &nbsp; &nbsp; - Home: essa view exibe mensagem de boas-vindas, lista as tarefas do usuário e botões para criar tarefa, atualizar tarefa e logout;
+&nbsp; &nbsp; &nbsp; &nbsp; - Header: essa view, que está dentro da pasta components, apresenta botões para acessar funcionalidades da plataforma: botão para renderizar a home, botão para renderizar "Criar tarefa", botão para renderizar "Minhas tarefas", botão para "Logout" e botão para "Apagar conta". Ela usa usuarioController.logout e usuarioController.excluirConta;
+
+&nbsp; &nbsp; &nbsp; &nbsp; - Home: essa view exibe mensagem de boas-vindas, um dashboard (com a quantidade de tarefas a fazer, quantidade de tarefas concluídas e quantidade total de tarefas)
 
 &nbsp; &nbsp; &nbsp; &nbsp; - CriarTarefa: consiste em um formulário com campos título, descrição, deadline, progresso e prioridade. Além disso, envia os dados para tarefaController.salvarTarefa;
 
-&nbsp; &nbsp; &nbsp; &nbsp; - AtualizarTarefa: basicamente, é um formulário semelhante ao de criação de tarefas. No entanto, ele atualiza tarefa via tarefaController.atualizarTarefa. <br> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; - MinhasTarefas: basicamente, nessa view aparecem todas as tarefas do usuário (em forma de cards), com botões para editá-las ou excluí-las. Ao clicar nesses botões, um popup é aberto para tal. Ela se relaciona com tarefaController.listarTarefas, tarefaController.editarTarefa e tarefaController.excluirTarefas  <br> <br>
 
 
 &nbsp; &nbsp; &nbsp; &nbsp; **Controllers (controladores)** <br>
@@ -177,6 +179,8 @@ CREATE TABLE TAREFA (
 &nbsp; &nbsp; &nbsp; &nbsp;- login: autentica um usuário existente;
 
 &nbsp; &nbsp; &nbsp; &nbsp; - logout: encerra a sessão do usuário.
+
+&nbsp; &nbsp; &nbsp; &nbsp; - excluirConta: o usuário pode excluir sua conta.
 <br> <br>
 
 &nbsp; &nbsp; &nbsp; &nbsp;**tarefaController** <br>
@@ -1205,7 +1209,7 @@ carregarTarefas();
 &nbsp; &nbsp; &nbsp; &nbsp;De modo geral, não houve mudanças significativas no backend e no banco de dados em relação ao que foi mostrado nas seções anteriores. Apenas houve a adição da opção de exclusão de conta do usuário no controllers/usuarioController.js e também a exclusão de tarefas relacionadas a esse usuário excluído no banco de dados, sendo que esta última alteração mencionada foi realizada no models/tarefa.js. Tais mudanças estão explicitadas logo abaixo:
 
 ```javascript
-//***ARQUIVO models/tarefa.js***
+//***Trecho do arquivo models/tarefa.js***
 async excluirPorUsuario(usuarioId) {
     const query = "DELETE FROM TAREFA WHERE usuario_id = $1";
     await pool.query(query, [usuarioId]);
@@ -1213,7 +1217,7 @@ async excluirPorUsuario(usuarioId) {
 ```
 
 ```javascript
-//***ARQUIVO controllers/usuarioController.js***
+//***Trecho do arquivo controllers/usuarioController.js***
 
 //Exclusão de conta.
 exports.excluirConta = async (req, res) => {
