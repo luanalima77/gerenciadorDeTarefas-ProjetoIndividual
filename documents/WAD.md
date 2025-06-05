@@ -288,7 +288,7 @@ CREATE TABLE TAREFA (
 ## 4.2 Configurando o banco de dados e as migrações
 &nbsp; &nbsp; &nbsp; &nbsp; Para configurar o banco de dados, é necessário seguir os seguintes passos:
 
- &nbsp; &nbsp; &nbsp; &nbsp; **PASSO 1**: configure das variáveis de ambiente necessárias no arquivo .env. Dessa forma, insira isso no arquivo .env: 
+ &nbsp; &nbsp; &nbsp; &nbsp; **PASSO 1**: renomeie o arquivo .env.example para .env e configure das variáveis de ambiente necessárias nele. Dessa forma, as variáveis de ambiente usadas nesse arquivo são:
 
 ```
 DB_USER=

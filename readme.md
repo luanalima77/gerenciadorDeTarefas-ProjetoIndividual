@@ -173,7 +173,7 @@ npm install date-fns
 <br><br>
 
 ## Parte 2: configuração do banco de dados
-1) Faça a configuração das variáveis de ambiente necessárias, a exemplo das configurações do banco de dados PostgreSQL. No caso deste projeto, usou-se o Supabase para armazenar os dados. Dessa forma, insira isso no arquivo .env: 
+1) Faça a configuração das variáveis de ambiente necessárias, a exemplo das configurações do banco de dados PostgreSQL. No caso deste projeto, usou-se o Supabase para armazenar os dados. Dessa forma, renomeie o arquivo .env.example para .env. Esse arquivo mostra as seguintes variáveis de ambiente: 
 
 ```
 DB_USER=
