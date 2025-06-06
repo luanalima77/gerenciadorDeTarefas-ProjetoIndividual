@@ -777,7 +777,7 @@ try {
 &nbsp; &nbsp; &nbsp; &nbsp;A figura 43 mostra a sidebar que é aberta quando o usuário clica no menu hambúrguer no canto superior esquerdo da tela, com todas as opções de funcionalidades da aplicação web (ir para home, minhas tarefas, criar tarefa, logout e excluir conta). Essa sidebar é padrão para todas as páginas do site. Por fim, o uso de fetch API nessa parte está explicitado logo abaixo das figuras.
 <p align = "center"> Figura 43 - Abrindo a sidebar</p>
 <div align = "center">
-<img src = "../assets/sidebar.png">
+<img src = "../assets/sideBar.png">
 </div>
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 <br>
