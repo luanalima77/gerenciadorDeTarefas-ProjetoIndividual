@@ -1291,6 +1291,14 @@ exports.excluirConta = async (req, res) => {
   }
 };
 ```
+<br><br>
+
+# BREVE RESUMO DAS DECISÕES TÉCNICAS (FRAMEWORKS, BANCO DE DADOS E ARQUITETURA)
+
+# PRINCIPAIS APRENDIZADOS E DESAFIOS SUPERADOS
+
+# PONTOS QUE FUNCIONARAM BEM E PONTOS QUE AINDA GOSTARIA DE MELHORAR
+
 # REFERÊNCIAS BIBLIOGRÁFICAS
 
 BECKER, Sophie. What is Supabase?. [S. l.], 14 dez. 2023. Disponível em: https://blog.boldtech.dev/what-is-supabase-vs-firebase/#supabase-who-are-they. Acesso em: 20 maio 2025.
