@@ -1294,6 +1294,14 @@ exports.excluirConta = async (req, res) => {
 <br><br>
 
 # BREVE RESUMO DAS DECISÕES TÉCNICAS (FRAMEWORKS, BANCO DE DADOS E ARQUITETURA)
+&nbsp; &nbsp; &nbsp; &nbsp;Para o desenvolvimento do projeto Task, foram tomadas as seguintes decisões técnicas:
+
+- **Frameworks**: de modo geral, foi utilizado o Express.js como framework principal do backend, aliado ao EJS como motor de templates para renderização dinâmica no frontend. No frontend também foram incorporadas bibliotecas como SweetAlert2 para alertas visuais e ScrollReveal para animações;
+
+- **Banco de Dados**: o site Task utiliza o PostgreSQL como banco de dados relacional, acessado via Supabase, que oferece uma camada de conexão e gerenciamento em nuvem;
+
+- **Arquitetura**: o site Task segue o padrão MVC (Model-View-Controller), permitindo separação de responsabilidades entre lógica de negócio (controllers), visualização (views) e manipulação dos dados (models).Por conseguinte, isso torna a aplicação mais organizada, escalável e de fácil manutenção.
+<br><br>
 
 # PRINCIPAIS APRENDIZADOS E DESAFIOS SUPERADOS
 
