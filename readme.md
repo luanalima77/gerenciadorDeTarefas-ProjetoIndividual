@@ -1,5 +1,21 @@
-# Task: descrição do projeto 
-&nbsp; &nbsp; &nbsp; &nbsp;Em linhas gerais, o site Task consiste em um gerenciador de tarefas, no qual os usuários terão opções de cadastro e login, ou seja, poderão criar contas próprias, a fim de registrar suas atividades. Estas poderão ser editadas, filtradas, alteradas, adicionadas e excluídas, tendo informações de id, título, descrição, deadline, progresso, classificação (rótulo da tarefa) e prioridade.A partir de tais aspectos, objetiva-se que os utilizadores do sistema possam deter um maior controle sobre suas tasks e, consequentemente, um melhor planejamento.
+# 📝 Task: descrição do projeto e funcionalidades
+&nbsp; &nbsp; &nbsp; &nbsp;O Task é uma aplicação web desenvolvida para auxiliar usuários no controle, organização e planejamento de suas tarefas diárias. Nesse sentido, a plataforma oferece uma interface amigável e recursos para garantir produtividade e clareza nas atividades pessoais e profissionais. Estas poderão ser editadas, filtradas, alteradas, adicionadas e excluídas, tendo informações de id, título, descrição, deadline, progresso, classificação (rótulo da tarefa) e prioridade.A partir de tais aspectos, objetiva-se que os utilizadores do sistema possam deter um maior controle sobre suas tasks e, consequentemente, um melhor planejamento.
+
+## Funcionalidades
+&nbsp; &nbsp; &nbsp; &nbsp;De modo mais específico, as funcionalidades inerentes ao site Task estão descritas nos tópicos subsequentes:
+- Cadastro e login de usuários com autenticação segura (Verificação e criptografia de senhas);
+- Criação de tarefas personalizadas com:
+  - ID (identificador único);
+  - Título;
+  - Descrição;
+  - Deadline (data limite);
+  - Progresso (percentual ou status);
+  - Classificação (rótulo/categoria);
+  - Prioridade (baixa, média, alta).
+- Edição e atualização das tarefas;
+- Exclusão definitiva de tarefas;
+- Filtragem e ordenação por categoria, prioridade, data ou progresso;
+- Dashboard com visualização categorizada das atividades.
 
 # Estrutura de pastas
 &nbsp; &nbsp; &nbsp; &nbsp;Logo abaixo está descrita a estrutura de pastas do projeto.
