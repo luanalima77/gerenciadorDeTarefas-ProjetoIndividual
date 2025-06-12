@@ -1293,7 +1293,7 @@ exports.excluirConta = async (req, res) => {
 ```
 <br><br>
 
-# BREVE RESUMO DAS DECISÕES TÉCNICAS (FRAMEWORKS, BANCO DE DADOS E ARQUITETURA)
+# 7 BREVE RESUMO DAS DECISÕES TÉCNICAS (FRAMEWORKS, BANCO DE DADOS E ARQUITETURA)
 &nbsp; &nbsp; &nbsp; &nbsp;Para o desenvolvimento do projeto Task, foram tomadas as seguintes decisões técnicas:
 
 - **Frameworks**: de modo geral, foi utilizado o Express.js como framework principal do backend, aliado ao EJS como motor de templates para renderização dinâmica no frontend. No frontend também foram incorporadas bibliotecas como SweetAlert2 para alertas visuais e ScrollReveal para animações;
@@ -1303,11 +1303,26 @@ exports.excluirConta = async (req, res) => {
 - **Arquitetura**: o site Task segue o padrão MVC (Model-View-Controller), permitindo separação de responsabilidades entre lógica de negócio (controllers), visualização (views) e manipulação dos dados (models).Por conseguinte, isso torna a aplicação mais organizada, escalável e de fácil manutenção.
 <br><br>
 
-# PRINCIPAIS APRENDIZADOS E DESAFIOS SUPERADOS
+# 8 PRINCIPAIS APRENDIZADOS E DESAFIOS SUPERADOS
+## 8.1 Aprendizados
+&nbsp; &nbsp; &nbsp; &nbsp; Como principais aprendizados no que tange a este projeto, é possível mencionar: 
+- Entendimento prático de Node.js e Express.js, aplicando conceitos de rotas, middlewares e sessões;
+- Integração com banco de dados PostgreSQL usando credenciais seguras via .env, bem como o uso do Supabase (banco de dados em nuvem) para tal tarefa;
+- Uso de bcrypt para proteger as senhas dos usuários por meio de criptografia, ou seja, para promover segurança a quem usa a plataforma;
+- Uso de date-fns para lidar com datas e prazos;
+- Desenvolvimento de feedbacks visuais e interações com SweetAlert2 no frontend.
 
-# PONTOS QUE FUNCIONARAM BEM E PONTOS QUE AINDA GOSTARIA DE MELHORAR
+<br><br>
 
-# REFERÊNCIAS BIBLIOGRÁFICAS
+## 8.2 Desafios superados
+&nbsp; &nbsp; &nbsp; &nbsp;Basicamente, os principais desafios superados no que se refere ao vigente projeto foram: 
+- Realizar a configuração correta das variáveis de ambiente e conexão segura com o banco via Supabase. Foi necessário pesquisar bastantes alternativas para deixar o site mais seguro;
+- Entender e implementar a lógica de login com sessões, controle de autenticação e proteção de rotas.
+<br><br>
+
+# 9 PONTOS QUE FUNCIONARAM BEM E PONTOS QUE AINDA GOSTARIA DE MELHORAR
+
+# 10 REFERÊNCIAS BIBLIOGRÁFICAS
 
 BECKER, Sophie. What is Supabase?. [S. l.], 14 dez. 2023. Disponível em: https://blog.boldtech.dev/what-is-supabase-vs-firebase/#supabase-who-are-they. Acesso em: 20 maio 2025.
 
