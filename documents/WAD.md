@@ -643,7 +643,7 @@ node server.js
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 <br>
 
-&nbsp; &nbsp; &nbsp; &nbsp;A figura 34 mostra a view de cadastro quando o usuário a acessa. A figura 35 mostra a verificação se o e-mail possui @ em sua estrutura (com base na estrutura padrão de e-mail, já que o input é do tipo e-mail). A figura 36 mostra o popup que aparece quando o usuário tenta cadastrar uma senha sem 8 caracteres, 1 letra maiúscula e um caractere especial. ,A figura 37 mostra o popup que aparece ao usuário quando ele tenta cadastrar um e-mail que já está cadastrado. Vale mencionar que quando o usuário faz o cadastro com sucesso, ele é direcionado à view de login para entrar no site. 
+&nbsp; &nbsp; &nbsp; &nbsp;A figura 34 mostra a view de cadastro quando o usuário a acessa. A figura 35 mostra a verificação se o e-mail possui @ em sua estrutura (com base na estrutura padrão de e-mail, já que o input é do tipo e-mail). A figura 36 mostra o popup que aparece quando o usuário tenta cadastrar uma senha sem 8 caracteres, 1 letra maiúscula e um caractere especial. ,A figura 37 mostra o popup que aparece ao usuário quando ele tenta cadastrar um e-mail que já está cadastrado. Vale mencionar que quando o usuário faz o cadastro com sucesso, ele é direcionado à view de login para entrar no site. Logo abaixo das imagens, é mostrado  como fetch API foi usado na tela de cadastro.
 <p align = "center"> Figura 34 - View de cadastro</p>
 <div align = "center">
 <img src = "../assets/cadastroView.png">
@@ -670,6 +670,49 @@ node server.js
 <img src = "../assets/cadastroViewEmailJaCadastrado.png">
 </div>
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br> <br>
+
+```javascript
+ //Usando Fetch API para mandar os dados de cadastro para o banco por meio da rota /cadastro.
+    try {
+        const response = await fetch("/cadastro", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nome_usuario, email, senha }),
+    });
+
+    //Verificando a resposta JSON e adicionando o SweetAlert2 para retornar ao usuário se o cadastro foi bem-sucedido ou não.
+    const data = await response.json();
+
+        if (response.ok) {
+          Swal.fire({
+            icon: "success",
+            title: "Sucesso!",
+            text: data.mensagem,
+            timer: 2000,
+            showConfirmButton: false,
+            scrollbarPadding: false
+          }).then(() => {
+            window.location.href = "/login";
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Erro",
+            text: data.error || "Erro ao realizar cadastro",
+            scrollbarPadding: false
+          });
+        }
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: "Erro na comunicação com o servidor",
+          scrollbarPadding: false
+        });
+        console.error(error);
+      }
+```
 <br> <br>
 
 &nbsp; &nbsp; &nbsp; &nbsp;A figura 38 mostra a view de login quando o usuário a acessa. Já a figura 39 mostra o popup que é apresentado ao usuário quando ele erra seu e-mail ou sua senha. Já a figura 40 mostra o popup que aparece ao usuário quando ele faz o login com sucesso. Logo abaixo das imagens, é mostrado  como fetch API foi usado na tela de login.

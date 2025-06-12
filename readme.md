@@ -16,95 +16,33 @@
 - Exclusão definitiva de tarefas;
 - Filtragem e ordenação por categoria, prioridade, data ou progresso;
 - Dashboard com visualização categorizada das atividades.
+<br><br>
 
-# Estrutura de pastas
-&nbsp; &nbsp; &nbsp; &nbsp;Logo abaixo está descrita a estrutura de pastas do projeto.
-```
-gerenciadorDeTarefas-ProjetoIndividual/
-│
-├── assets/                     # Arquivos públicos como imagens e fontes
-|       
-├── config/                     # Arquivos de configuração (ex: conexão com banco)
-│   └── database.js
-|
-├── controllers/                # Lógica de controle das requisições
-│   └── tarefaController.js     # Controller da tarefa
-|   └── usuarioController.js    # Controller do usuário
-|   
-├── documents/                  # Documentação do projeto (WAD)
-|   └── WAD.md
-|
-├── models/                     # Definição de modelos de dados (estrutura do banco)
-│   └── tarefa.js               # Model da tarefa
-|   └── usuario.js              # Model do usuário
-|
-├── node_modules/               # Pacotes do node (tem muitas pastas dentro dele)
-|
-├── routes/                 # Definição das rotas do sistema (rotas de usuário e tarefa)
-│   └── index.js
-|
-├── scripts                     # Arquivos de JavaScript públicos
-│   └── abrirMenuHamburguer.js
-│   └── animacoes.js
-│   └── cadastro.js
-│   └── criarTarefa.js
-│   └── excluirConta.js
-│   └── graficos.js
-│   └── init.sql
-│   └── listarTarefas.js
-│   └── login.js
-│   └── logout.js
-│   └── runSQLScript.js
-|
-├── services/                   # Serviços auxiliares do sistema
-│   └── userService.js             
-|               
-├── styles/                     # Arquivos CSS públicos
-│   └── criarTarefa.css
-│   └── footer.css
-│   └── header.css
-│   └── home.css
-│   └── landingPage.css
-│   └── listarTarefas.css
-│   └── loginAndSignUp.css
-│   └── style.css.css
-|
-├── tests/                      # Arquivos de testes unitários
-│   └── example.test.js
-|
-├── views/                      # Templates e componentes visuais da aplicação
-|   └── Cadastro/
-|       └── index.ejs
-|   └── components/
-|       └── footer.ejs
-|       └── header.ejs
-|   └── CriarTarefa/
-|       └── index.ejs
-|   └── Home/
-|       └── index.ejs
-|   └── LandingPage/
-|       └── index.ejs
-|   └── Login/
-|       └── index.ejs
-|   └── MinhasTarefas/
-|       └── index.ejs
-|
-├── .gitignore                  # Arquivo para ignorar arquivos no Git
-|
-├── .env                        # Arquivo para variáveis de ambiente (banco de dados)
-|
-├── jest.config.js              # Arquivo de configuração do Jest
-|
-├── package-lock.json           # Gerenciador de dependências do Node.js
-|
-├── package.json                # Gerenciador de dependências do Node.js
-|
-├── README.md                   # Descrição do projeto e de como instalá-lo
-|
-├── server.js                   # Arquivo principal que inicializa o servidor
-|
-└── rest.http                   # Teste de endpoints (opcional)
-```
+# Tecnologias utilizadas
+## Backend
+- **Node.js** – ambiente de execução para JavaScript no servidor;
+- **Express.js** – framework web para Node, responsável pelas rotas e lógica;
+- **PostgreSQL** – banco de dados relacional usado para armazenar tarefas e usuários;
+- **Supabase** – interface para configurar e conectar bancos PostgreSQL em nuvem;
+- **express-session** – Gerencia sessões de usuários (ex: login);
+- **cors** – permite requisições entre diferentes origens (Cross-Origin);
+- **dotenv** – armazena dados sensíveis como credenciais de banco de dados;
+- **method-override** – permite usar métodos HTTP como PUT e DELETE em formulários;
+- **bcrypt** – criptografa senhas dos usuários com segurança;
+- **date-fns** – biblioteca para manipulação e formatação de datas.
+
+## Frontend
+- **JavaScript** – Lógica do lado do cliente, manipulação de DOM e requisições assíncronas, além de fetch API;
+- **CSS** – estilização responsiva e personalizada da interface;
+- **EJS** – templates para renderização dinâmica no frontend;
+- **ScrollReveal** – biblioteca de animações de entrada ao rolar a página;
+- **SweetAlert2** – Pop-ups e alertas customizados para interações com o usuário (confirmações, avisos, etc).
+<br><br>
+
+# Link do vídeo de demonstração
+&nbsp; &nbsp; &nbsp; &nbsp;Para ver o vídeo de demonstração deste projeto, acesse este link: 
+<br><br>
+
 # Prints da interface
 &nbsp; &nbsp; &nbsp; &nbsp;No projeto foram desenvolvidas 6 views: Landing page, login, cadastro, home, minhas tarefas e criar tarefa. Ademais, o footer e o header da aplicação foram separados na pasta components, uma vez que estão padronizados para as views. É importante ressaltar que a descrição das views nesta seção também está presente no WAD.
 
@@ -116,7 +54,7 @@ gerenciadorDeTarefas-ProjetoIndividual/
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
 <br>
 
-&nbsp; &nbsp; &nbsp; &nbsp;A figura 2 mostra a view de cadastro quando o usuário a acessa. A figura 3 mostra a verificação se o e-mail possui @ em sua estrutura (com base na estrutura padrão de e-mail, já que o input é do tipo e-mail). A figura 4 mostra o popup que aparece quando o usuário tenta cadastrar uma senha sem 8 caracteres, 1 letra maiúscula e um caractere especial. ,A figura 5 mostra o popup que aparece ao usuário quando ele tenta cadastrar um e-mail que já está cadastrado. Vale mencionar que quando o usuário faz o cadastro com sucesso, ele é direcionado à view de login para entrar no site. 
+&nbsp; &nbsp; &nbsp; &nbsp;A figura 2 mostra a view de cadastro quando o usuário a acessa. A figura 3 mostra a verificação se o e-mail possui @ em sua estrutura (com base na estrutura padrão de e-mail, já que o input é do tipo e-mail). A figura 4 mostra o popup que aparece quando o usuário tenta cadastrar uma senha sem 8 caracteres, 1 letra maiúscula e um caractere especial. ,A figura 5 mostra o popup que aparece ao usuário quando ele tenta cadastrar um e-mail que já está cadastrado. Vale mencionar que quando o usuário faz o cadastro com sucesso, ele é direcionado à view de login para entrar no site. Logo abaixo das imagens, é mostrado  como fetch API foi usado na tela de cadastro.
 <p align = "center"> Figura 2 - View de cadastro</p>
 <div align = "center">
 <img src = "./assets/cadastroView.png">
@@ -143,6 +81,49 @@ gerenciadorDeTarefas-ProjetoIndividual/
 <img src = "./assets/cadastroViewEmailJaCadastrado.png">
 </div>
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
+<br> <br>
+
+```javascript
+ //Usando Fetch API para mandar os dados de cadastro para o banco por meio da rota /cadastro.
+    try {
+        const response = await fetch("/cadastro", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nome_usuario, email, senha }),
+    });
+
+    //Verificando a resposta JSON e adicionando o SweetAlert2 para retornar ao usuário se o cadastro foi bem-sucedido ou não.
+    const data = await response.json();
+
+        if (response.ok) {
+          Swal.fire({
+            icon: "success",
+            title: "Sucesso!",
+            text: data.mensagem,
+            timer: 2000,
+            showConfirmButton: false,
+            scrollbarPadding: false
+          }).then(() => {
+            window.location.href = "/login";
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Erro",
+            text: data.error || "Erro ao realizar cadastro",
+            scrollbarPadding: false
+          });
+        }
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: "Erro na comunicação com o servidor",
+          scrollbarPadding: false
+        });
+        console.error(error);
+      }
+```
 <br> <br>
 
 &nbsp; &nbsp; &nbsp; &nbsp;A figura 6 mostra a view de login quando o usuário a acessa. Já a figura 7 mostra o popup que é apresentado ao usuário quando ele erra seu e-mail ou sua senha. Já a figura 8 mostra o popup que aparece ao usuário quando ele faz o login com sucesso. Logo abaixo das imagens, é mostrado  como fetch API foi usado na tela de login.
@@ -675,7 +656,98 @@ carregarTarefas();
 <img src = "./assets/apagarContaSucesso.png">
 </div>
 <p align = "center"> Fonte: material produzido pela autora (2025).</p>
-<br>
+<br><br>
+
+
+# Estrutura de pastas
+&nbsp; &nbsp; &nbsp; &nbsp;Logo abaixo está descrita a estrutura de pastas do projeto.
+```
+gerenciadorDeTarefas-ProjetoIndividual/
+│
+├── assets/                     # Arquivos públicos como imagens e fontes
+|       
+├── config/                     # Arquivos de configuração (ex: conexão com banco)
+│   └── database.js
+|
+├── controllers/                # Lógica de controle das requisições
+│   └── tarefaController.js     # Controller da tarefa
+|   └── usuarioController.js    # Controller do usuário
+|   
+├── documents/                  # Documentação do projeto (WAD)
+|   └── WAD.md
+|
+├── models/                     # Definição de modelos de dados (estrutura do banco)
+│   └── tarefa.js               # Model da tarefa
+|   └── usuario.js              # Model do usuário
+|
+├── node_modules/               # Pacotes do node (tem muitas pastas dentro dele)
+|
+├── routes/                 # Definição das rotas do sistema (rotas de usuário e tarefa)
+│   └── index.js
+|
+├── scripts                     # Arquivos de JavaScript públicos
+│   └── abrirMenuHamburguer.js
+│   └── animacoes.js
+│   └── cadastro.js
+│   └── criarTarefa.js
+│   └── excluirConta.js
+│   └── graficos.js
+│   └── init.sql
+│   └── listarTarefas.js
+│   └── login.js
+│   └── logout.js
+│   └── runSQLScript.js
+|
+├── services/                   # Serviços auxiliares do sistema
+│   └── userService.js             
+|               
+├── styles/                     # Arquivos CSS públicos
+│   └── criarTarefa.css
+│   └── footer.css
+│   └── header.css
+│   └── home.css
+│   └── landingPage.css
+│   └── listarTarefas.css
+│   └── loginAndSignUp.css
+│   └── style.css.css
+|
+├── tests/                      # Arquivos de testes unitários
+│   └── example.test.js
+|
+├── views/                      # Templates e componentes visuais da aplicação
+|   └── Cadastro/
+|       └── index.ejs
+|   └── components/
+|       └── footer.ejs
+|       └── header.ejs
+|   └── CriarTarefa/
+|       └── index.ejs
+|   └── Home/
+|       └── index.ejs
+|   └── LandingPage/
+|       └── index.ejs
+|   └── Login/
+|       └── index.ejs
+|   └── MinhasTarefas/
+|       └── index.ejs
+|
+├── .gitignore                  # Arquivo para ignorar arquivos no Git
+|
+├── .env                        # Arquivo para variáveis de ambiente (banco de dados)
+|
+├── jest.config.js              # Arquivo de configuração do Jest
+|
+├── package-lock.json           # Gerenciador de dependências do Node.js
+|
+├── package.json                # Gerenciador de dependências do Node.js
+|
+├── README.md                   # Descrição do projeto e de como instalá-lo
+|
+├── server.js                   # Arquivo principal que inicializa o servidor
+|
+└── rest.http                   # Teste de endpoints (opcional)
+```
+
 
 # Como executar o projeto localmente?
 &nbsp; &nbsp; &nbsp; &nbsp;Para criar estes passos, usou-se como referência o seguinte link: https://github.com/afonsobrandaointeli/mvc-boilerplate , o qual foi disponibilizado na explicação da atividade.
