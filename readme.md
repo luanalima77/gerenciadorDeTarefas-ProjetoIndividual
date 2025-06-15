@@ -41,7 +41,8 @@
 <br><br>
 
 # Link do vídeo de demonstração
-&nbsp; &nbsp; &nbsp; &nbsp;Para ver o vídeo de demonstração deste projeto, acesse este link: 
+&nbsp; &nbsp; &nbsp; &nbsp;Para ver o vídeo de demonstração deste projeto, acesse este link: [clique aqui](https://drive.google.com/file/d/1YBxczHIFI9UXCb5r-Hx3n3TtNZFBXGtL/view?usp=sharing)
+
 <br><br>
 
 # Prints da interface
