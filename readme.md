@@ -1,7 +1,7 @@
 # 📝 Task: descrição do projeto e funcionalidades
 &nbsp; &nbsp; &nbsp; &nbsp;O Task é uma aplicação web desenvolvida para auxiliar usuários no controle, organização e planejamento de suas tarefas diárias. Nesse sentido, a plataforma oferece uma interface amigável e recursos para garantir produtividade e clareza nas atividades pessoais e profissionais. Estas poderão ser editadas, filtradas, alteradas, adicionadas e excluídas, tendo informações de id, título, descrição, deadline, progresso, classificação (rótulo da tarefa) e prioridade. A partir de tais aspectos, objetiva-se que os utilizadores do sistema possam deter um maior controle sobre suas tasks e, consequentemente, um melhor planejamento. Por fim, é válido mencionar que a documentação completa do projeto (com mais detalhes) está em documents/WAD.md.
 
-## Funcionalidades
+## Funcionalidades 
 &nbsp; &nbsp; &nbsp; &nbsp;De modo mais específico, as funcionalidades inerentes ao site Task estão descritas nos tópicos subsequentes:
 - Cadastro e login de usuários com autenticação segura (Verificação e criptografia de senhas);
 - Criação de tarefas personalizadas com:
@@ -32,7 +32,7 @@
 - **date-fns** – biblioteca para manipulação e formatação de datas.
 
 ## Frontend
-- **JavaScript** – Lógica do lado do cliente, manipulação de DOM e requisições assíncronas, além de fetch API;
+- **JavaScript** – Lógica do lado do cliente, manipulação de DOM e requisições assíncronas, além de fetch API; 
 - **CSS** – estilização responsiva e personalizada da interface;
 - **EJS** – templates para renderização dinâmica no frontend;
 - **ScrollReveal** – biblioteca de animações de entrada ao rolar a página;
