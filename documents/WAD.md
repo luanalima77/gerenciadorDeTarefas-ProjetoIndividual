@@ -1321,6 +1321,16 @@ exports.excluirConta = async (req, res) => {
 <br><br>
 
 # 9 PONTOS QUE FUNCIONARAM BEM E PONTOS QUE AINDA GOSTARIA DE MELHORAR
+## 9.1 Pontos que funcionaram bem
+- Integração entre front-end e back-end com uso eficiente do padrão MVC, facilitando a organização do código;
+- Autenticação de usuários com sessões funcionando corretamente, garantindo acesso seguro às funcionalidades;
+- Cadastro, listagem, edição e exclusão de tarefas funcionando de forma fluida, com comunicação via Fetch API;
+- Conexão com banco de dados PostgreSQL via Pool do pg, estável e eficiente;
+- Separação clara entre models, controllers e rotas facilita manutenção.
+
+## 9.2 Pontos que ainda gostaria de melhorar
+- Implementar upload de arquivos ou anexos nas tarefas, como documentos ou imagens;
+- Implementar notificações por e-mail para prazos de tarefas.
 
 # 10 REFERÊNCIAS BIBLIOGRÁFICAS
 
