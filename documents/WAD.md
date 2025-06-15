@@ -1327,10 +1327,13 @@ exports.excluirConta = async (req, res) => {
 - Cadastro, listagem, edição e exclusão de tarefas funcionando de forma fluida, com comunicação via Fetch API;
 - Conexão com banco de dados PostgreSQL via Pool do pg, estável e eficiente;
 - Separação clara entre models, controllers e rotas facilita manutenção.
+<br> <br>
 
 ## 9.2 Pontos que ainda gostaria de melhorar
 - Implementar upload de arquivos ou anexos nas tarefas, como documentos ou imagens;
 - Implementar notificações por e-mail para prazos de tarefas.
+
+<br><br>
 
 # 10 REFERÊNCIAS BIBLIOGRÁFICAS
 
